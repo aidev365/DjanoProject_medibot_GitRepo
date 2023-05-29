@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/index_style1.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/style1.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/customnavbar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+    <title>Home</title>
+
+     <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '845027796483583');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=845027796483583&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+
+<body >
+
+    <div>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark background static-top ">
+            <div class="container">
+            <!-- <a class="navbar-brand" href="#">
+                <img src="/static/images/homeback.jpg" alt="..." height=50px>
+            </a> -->
+                <a class="navbar-brand" href="#"> <h2 style="color: black;">Medical specialist</h2> </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-block  " style="color: black;" aria-current="page" href="{% url 'HOME' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-block  " style="color: black;" aria-current="page" href="{% url 'LOGOUT' %}">LogOut</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+      <div class="p-5" ></div>
+
+
+    <form action="" method="POST" >
+        {% csrf_token %}
+
+
+
+
+        {% if context %}
+        {% for i in context %}
+
+        {% if i.id < 4  %}
+        <div class="container mt-sm-5 my-1">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class=" h5"><b>{{i.id}}) {{i.Question}}?</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 " id="options">
+                    <label class="options">{{i.option1}}      <input type="radio" name="{{i.id}}" value="1" > <span class="checkmark"></span></label>
+                    <label class="options">{{i.option2}}      <input type="radio" name="{{i.id}}" value="2"> <span class="checkmark"></span> </label>
+                </div>
+            </div>
+        </div>
+
+        {% elif i.id == 9 %}
+        <div class="container mt-sm-5 my-1">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class=" h5"><b>{{i.id}}) {{i.Question}}?</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 " id="options">
+                    <label class="options">{{i.option1}}      <input type="radio" name="{{i.id}}" value="1" > <span class="checkmark"></span></label>
+                    <label class="options">{{i.option2}}      <input type="radio" name="{{i.id}}" value="2"> <span class="checkmark"></span> </label>
+                    <!-- <label class="options">{{i.option3}}      <input type="radio" name="{{i.id}}" value="3"> <span class="checkmark"></span> </label>  -->
+                    <!-- <input type="hidden" id="custId" name="custId" value="{{data.id}}"> -->
+                </div>
+            </div>
+        </div>
+
+
+        {% elif i.id == 17 %}
+        <div class="container mt-sm-5 my-1">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class=" h5"><b>{{i.id}}) {{i.Question}}?</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 " id="options">
+                    <label class="options">{{i.option1}}      <input type="radio" name="{{i.id}}" value="1" > <span class="checkmark"></span></label>
+                    <label class="options">{{i.option2}}      <input type="radio" name="{{i.id}}" value="2"> <span class="checkmark"></span> </label>
+                    <!-- <label class="options">{{i.option3}}      <input type="radio" name="{{i.id}}" value="3"> <span class="checkmark"></span> </label>  -->
+
+                </div>
+            </div>
+        </div>
+
+
+        {% else %}
+
+        <div class="container mt-sm-5 my-1">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+                <div class=" h5"><b>{{i.id}}) {{i.Question}}?</b></div>
+                <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 " id="options">
+                    <label class="options">{{i.option1}}      <input type="radio" name="{{i.id}}" value="1" > <span class="checkmark"></span></label>
+                    <!-- <label class="options">{{i.option2}}      <input type="radio" name="{{i.id}}" value="2"> <span class="checkmark"></span> </label>
+                    <label class="options">{{i.option3}}      <input type="radio" name="{{i.id}}" value="3"> <span class="checkmark"></span> </label>  -->
+                    <!-- <input type="hidden" id="custId" name="custId" value="{{data.id}}"> -->
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+            {% endfor %}
+
+            {% endif %}
+
+        <div class="container mt-sm-5 my-1">
+            <div class="question ml-sm-5 pl-sm-5 pt-2">
+            <div class="d-flex align-items-center pt-3">
+                <div class="ml-auto mr-sm-5">   <input type="submit" class="btn btn-outline-light" value="Submit"  ></div>
+            </div>
+        </div>
+        </div>
+    </form>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

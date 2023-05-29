@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://apnamd.ai/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://apnamd.ai/css/style.css">
+    
+    <link rel="stylesheet" href="https://apnamd.ai/bot/style.css"> 
+        
+    <style>
+        .requestotp {
+            margin-top: 7px;
+            display: inline-block;
+            font-size: 14px;
+            border: none;
+        }
+        .link7895{
+                border: solid 1px #8d6fe7;
+                border-radius: 10px;
+                color: #8d6fe7;
+            }
+            
+            a:visited {
+                color: initial;
+            }
+    </style>
+</head>
+<body>
+    
+    <section class="banner">
+         
+        <div class="container">
+           
+            <nav class="navbar navbar-expand-lg navbar-light custom_navbar">
+                <a class="navbar-brand" href="#"><img src="" alt="" style="width: 100px;"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   <ul class="navbar-nav ml-auto custom_ul">
+                      
+                      
+                      
+                      <li class="nav-item">
+                         <a class="nav-link" href="#">Patient</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                         <a class="nav-link" href="#">Business</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                         <a class="nav-link" href="#">About</a>
+                      </li>
+                      
+                      {% if user.is_authenticated %}
+                     
+                         <!-- <li class="nav-item">
+                             <a class="nav-link" href="#">Diagnosis</a> 
+                         </li>
+                         
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Profile</a>
+                         </li>
+                         
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Logout</a>
+                         </li>
+                          -->
+                        {% endif %}
+                         
+                         
+                         
+                     
+                      
+                      
+                   </ul>
+                </div>
+             </nav>
+           
+           <div class="row align-items-center">
+               
+                   <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                       <div>
+                           <h2>Login your APNAMD Account</h2>
+                           <div>Apna MD uses an AI engine to analyze your symptoms using results from clinical trials and diagnoses your medical condition.</div>
+                       </div>
+                   </div>
+           
+                   <div class="col-md-6">
+                       
+                       <div style="background: rgba(0,0,0, 0.3);border-radius: 10px;padding: 15px;">
+                           <h3 class="text-center mb-3">Login</h3>
+                           
+                           <form action="{% url 'sendotpnew' %}" method="post" >
+                               
+                            {% csrf_token %}
+
+                               
+                               <div class="mb-3 text-center">
+                                   <label class="form-label">Phone</label>
+                                   <input type="number" class="form-control phone-input" name="phone" autocomplete="off" required>
+                                   
+                                    <button type="submit" class="btn btn-primary send-otp-btn">Send OTP over WhatsApp</button>
+
+                                   <!-- <div class=" btn-sm btn-success requestotp" onclick="requestotp()" role="button" >
+                                       Send OTP over WhatsApp
+                                   </div> -->
+                               </div>
+                               
+                               
+                           </form>
+                           <form action="{% url 'login' %}" method="post" >
+                            {% csrf_token %}
+
+                            <div class="mb-3 text-center">
+                                <label class="form-label">OTP</label>
+                                <input type="number" class="form-control otp-input" name="otp" required >
+                            </div>
+                            
+                            <div class="mb-3 text-center">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                            
+                           </form>
+
+                       </div>
+                   </div>
+
+           </div>
+           
+        </div>
+     
+     </section>
+
+     <footer class="custom_footer">
+        <div class="container">
+           <div class="footer_data">
+              <img src="#" alt="">
+              <p> 
+                  <a href="#">Privacy Policy</a> |
+                  <a href="#">Terms & Conditions</a> |
+                  © <?= date('Y'); ?> APNAMD, All rights reserved.
+              </p>
+           </div>
+        </div>
+     </footer>
+     
+     
+     <script>
+        $(document).ready(function(){
+             $('.collapse.show').each(function(){
+              $(this).parent().find(".fa").removeClass("fa-plus").addClass("fa-minus");
+            });
+              
+           $('.collapse').on('shown.bs.collapse', function(){
+              $(this).parent().find(".fa").removeClass("fa-plus").addClass("fa-minus");
+           }).on('hidden.bs.collapse', function(){
+              $(this).parent().find(".fa").removeClass("fa-minus").addClass("fa-plus");
+           });       
+        });
+        </script> 
+    
+     <script src="https://apnamd.ai/js/jquery.slim.min.js"></script>
+     
+
+     
+     <script src="https://apnamd.ai/js/popper.min.js"></script>
+     <script src="https://apnamd.ai/js/bootstrap.bundle.min.js"></script>
+     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+
+
+    
+</body>
+</html>
+
+
+
+      
+    
+
+
+
+

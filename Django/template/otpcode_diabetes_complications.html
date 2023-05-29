@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Diabetes complications</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}" >
+    <link rel="icon" type="image/png" sizes="32x32"  href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'signup/signup.css' %}" rel="stylesheet" />
+
+
+    <link href="{% static 'signup/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'signup/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'signup/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'signup/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNMLKEX919"></script>
+
+    <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZD0QKCCXK7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZD0QKCCXK7');
+      gtag('config', 'UA-232399514-1');
+    </script>
+<link href="{% static 'login.css' %}" rel="stylesheet" />
+
+   <!-- Zoho -->
+
+<script src="https://cdn-in.pagesense.io/js/neerkolipty/5fba548aa2eb47769725f121cd8650e8.js"></script>
+
+
+</head>
+<body>
+    <main class="main" id="top">
+
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+          <div class="row">
+            <div class="row">
+              <a class="navbar-brand" href="{% url 'HOME' %}"><h3>ApnaMD</h3></a>
+            </div>
+            <div class="row">
+              <p> Clinically Tested AI Diagnostic </p>
+
+            </div>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'HOME' %}">Home</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="{% url 'DISEASE_SELECTION1' %}">Symptom Check</a></li>
+
+            </ul>
+            {% if user.is_authenticated %}
+        <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'LOGOUT' %}">Logout</a>
+
+        {% endif %}
+          </div>
+        </div>
+      </nav>
+
+      <section class="py-xxl-8 pb-0" id="home">
+        <div class="bg-holder bg-size" style="background-image:url(/static/assets/img/gallery/hero-bg.png)  ;background-position:top center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row min-vh-xl-100 min-vh-xxl-25">
+            <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{% static 'assets/img/gallery/image (1).png' %}" alt="hero-header" /></div>
+            <div class="col-md-85 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+
+                <div class="wrapper fadeInDown">
+                    <div id="formContent">
+                      <!-- Tabs Titles -->
+
+                      <!-- Icon -->
+                      <div class="fadeIn first">
+                        <h3 class="mb-5">OTP Verification</h3>
+                      </div>
+
+                      <!-- Login Form -->
+                      <form method="post" action="{% url 'sendotp_diabetes_complications' %}">
+                        {% csrf_token %}
+                        <input type="text" id="otp" class="fadeIn second" name="otp" placeholder="OTP">
+
+                        <input type="submit" class="fadeIn fourth" value="Verify">
+                      </form>
+
+                      <!-- Remind Passowrd -->
+                      <div id="formFooter">
+                        <a class="underlineHover" href="{% url 'resendotp_diabetes_complications' %}">Resend Otp</a>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+    </main>
+    <script>
+      const info = document.querySelector(".alert-info");
+
+      function process(event) {
+      event.preventDefault();
+
+      const phoneNumber = phoneInput.getNumber();
+
+      info.style.display = "";
+      info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+
+      $.ajax ({
+          url:"{% url 'sendotp_diabetes_complications' %}",
+          type:"get",
+          // data : {name:name,phone:phone,email:email,discription:discription,details:details},
+          data : {num:phoneNumber},
+          success:function(data){
+            if (data.status == "sent"){
+              alert("Please check your inbox for otp!");
+
+              window.location = "http://bpaulmac.pythonanywhere.com/otp_verification_diabetes_complications/";
+
+            }
+            else if (data.status == "Error"){
+              alert(" PLease Enter Correct Number ");
+              $("#result").html("<p class='alert alert-danger'>Please check Your internet Conectivity</p>")
+            }
+
+          }
+      })
+
+      }
+
+    </script>
+    <script>
+      const phoneInputField = document.querySelector("#phone");
+      const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      });
+    </script>
+
+
+
+
+
+
+    <script src="{% static 'signup/vendor/jquery/jquery.min.js' %}"></script>
+
+    <!-- Vendor JS-->
+    <script src="{% static 'signup/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'signup/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'signup/vendor/datepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'signup/global.js' %}"></script>
+    <!-- <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+ -->
+
+</body>
+</html>

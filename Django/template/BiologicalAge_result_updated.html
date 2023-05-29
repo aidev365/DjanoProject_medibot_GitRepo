@@ -1,0 +1,174 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <title>Login</title>
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'assets/Login_v4/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/Login_v4/css/main.css' %}">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-232399514-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-232399514-1');
+</script>
+
+ <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '845027796483583');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=845027796483583&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form" method="post"   onsubmit="process1(event)">
+				     {% csrf_token %}
+
+					<h4>To ensure your privacy, we can only send your results to the email ID that you provide. Alternatively, log in with your google ID and we shall send the results to your Google ID. </h4>
+                    <br>
+
+    					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+    						<span class="label-input100">Email ID</span>
+    						<input class="input100" id ="inputEmail" type="email"  name="email" placeholder="Enter your Email ID">
+    						<span class="focus-input100" data-symbol="&#xf206;"></span>
+    					</div>
+
+    					<div class="container-login100-form-btn">
+    						<div class="wrap-login100-form-btn">
+    							<div class="login100-form-bgbtn"></div>
+    							<button class="login100-form-btn">
+                                    Submit
+    							</button>
+    							<!--<input  type="submit" class="login100-form-btn"  value="Submit" >-->
+
+    						</div>
+            			</div>
+
+
+
+
+					<div class="txt1 text-center p-t-54 p-b-20">
+						<span>
+							Or Sign Up Using
+						</span>
+					</div>
+
+                        <div class="flex-c-m">
+						<a href="{% provider_login_url 'google' %}?next={% url 'biological_Age_thanks' %}" class="login100-social-item bg3">
+							<i class="fa fa-google"></i>
+						</a>
+					</div>
+					<br>
+					<h4>Your user details will not be used for marketing. In accordance with our privacy policy we will not share your details with third party. </h4>
+					<div class="alert alert-info" style="display: none;"></div>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+      const info1 = document.getElementById("abc")
+      function process1(event) {
+      event.preventDefault();
+      let email=document.getElementById("inputEmail").value;
+      // const phoneNumber = phoneInput.getNumber();
+      //   info.style.display = "";
+      //   info.innerHTML = `please wait we are sending text on this email: <strong>${email}</strong>`;
+
+      $.ajax ({
+          url:"{% url 'biological_Age_contactus' %}",
+          type:"get",
+
+          data : {email:email},
+          success:function(data){
+            if (data.status == "sent"){
+              alert("Please check your email inbox for detailed message!");
+
+              window.location = "https://www.apnamd.ai/BiologicalAge/thankyou/";
+
+            }
+            else if (data.status == "Error"){
+              alert(" PLease Enter Correct Email Id ");
+              $("#result").html("<p class='alert alert-danger'>Please check Your internet Conectivity</p>")
+            }
+
+          }
+      })
+
+      }
+
+    </script>
+
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="{% static 'signup/vendor/jquery/jquery.min.js' %}"></script>
+
+    <!-- Vendor JS-->
+    <!--<script src="{% static 'signup/vendor/select2/select2.min.js' %}"></script>-->
+    <!--<script src="{% static 'signup/vendor/datepicker/moment.min.js' %}"></script>-->
+    <!--<script src="{% static 'signup/vendor/datepicker/daterangepicker.js' %}"></script>-->
+    <!--<script src="{% static 'signup/global.js' %}"></script>-->
+
+
+</body>
+</html>

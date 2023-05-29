@@ -1,0 +1,428 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet</title>
+    <link rel="stylesheet" href="{% static 'skin-data/css/style.css' %}">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}" >
+    <link rel="icon" type="image/png" sizes="32x32"  href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <!-- <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}"> -->
+    <meta name="theme-color" content="#ffffff">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+    <!-- <link href="{% static 'login.css' %}" rel="stylesheet" /> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZD0QKCCXK7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZD0QKCCXK7');
+      gtag('config', 'UA-232399514-1');
+    </script>
+    <link href="{% static 'signup/signup.css' %}" rel="stylesheet" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-232399514-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-232399514-1');
+    </script>
+
+
+   <!-- Zoho -->
+
+  <script src="https://cdn-in.pagesense.io/js/neerkolipty/5fba548aa2eb47769725f121cd8650e8.js"></script>
+
+   <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '845027796483583');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=845027796483583&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+    <main class="main" id="top">
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+              <div class="row">
+                <div class="row">
+                  <a class="navbar-brand" href="{% url 'HOME' %}"><h3>ApnaMD</h3></a>
+                </div>
+                <div class="row">
+                  <p> Evidence Based Diagnostic Algorithms </p>
+
+                </div>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+              <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+                    <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'HOME' %}">Home</a></li>
+                      <!--<li class="nav-item px-2"><a class="nav-link" href="{% url 'DISEASE_SELECTION1' %}">Symptom Check</a></li>-->
+
+                    <!-- <li class="nav-item px-2"><a class="nav-link" href="#SymptomCheck">Symptom Check</a></li> -->
+
+                </ul>
+            <!--    {% if user.is_authenticated %}-->
+            <!--<a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'LOGOUT' %}">Logout</a>-->
+
+            <!--{% endif %}-->
+              </div>
+            </div>
+          </nav>
+
+          <section class="py-xxl-8 pb-0" id="home">
+            <div class="bg-holder bg-size" style="background-image:url(/static/assets/img/gallery/hero-bg.png)  ;background-position:top center;background-size:cover;">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="container">
+
+              <div class="row min-vh-xl-100 min-vh-xxl-25">
+                <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{% static 'assets/img/gallery/image (1).png' %}" alt="hero-header" /></div>
+                <div class="col-md-85 col-xl-6 col-xxl-5 text-md-start text-center py-2">
+
+                  <h4> Your diet is a crucial part of your health. It is important to understand the role of diet in weight loss plans and recovery. <br> Our image recognition and diagnostic algorithm will analyze the image of your food. <br> It will recognize the food items, macronutrients and calorie content. The analysis will also advice you regarding the duration of exercise that you will require to utilize all the food that you have consumed. Go ahead and test our free food diagnostic algorithm.</h4>
+					<section class="section-preview">
+
+
+
+    <iframe
+    id="JotFormIFrame-221992626303456"
+    title="Food Analysis"
+    onload="window.parent.scrollTo(0,0)"
+    allowtransparency="true"
+    allowfullscreen="true"
+    allow="geolocation; microphone; camera"
+    src="https://form.jotform.com/221992626303456"
+    frameborder="0"
+    style="
+    min-width: 100%;
+    height:539px;
+    border:none;"
+    scrolling="no"
+  >
+  </iframe>
+  <script type="text/javascript">
+    var ifr = document.getElementById("JotFormIFrame-221992626303456");
+    if (ifr) {
+      var src = ifr.src;
+      var iframeParams = [];
+      if (window.location.href && window.location.href.indexOf("?") > -1) {
+        iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+      }
+      if (src && src.indexOf("?") > -1) {
+        iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&"));
+        src = src.substr(0, src.indexOf("?"))
+      }
+      iframeParams.push("isIframeEmbed=1");
+      ifr.src = src + "?" + iframeParams.join('&');
+    }
+    window.handleIFrameMessage = function(e) {
+      if (typeof e.data === 'object') { return; }
+      var args = e.data.split(":");
+      if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
+      if (!iframe) { return; }
+      switch (args[0]) {
+        case "scrollIntoView":
+          iframe.scrollIntoView();
+          break;
+        case "setHeight":
+          iframe.style.height = args[1] + "px";
+          break;
+        case "collapseErrorPage":
+          if (iframe.clientHeight > window.innerHeight) {
+            iframe.style.height = window.innerHeight + "px";
+          }
+          break;
+        case "reloadPage":
+          window.location.reload();
+          break;
+        case "loadScript":
+          if( !window.isPermitted(e.origin, ['jotform.com', 'jotform.pro']) ) { break; }
+          var src = args[1];
+          if (args.length > 3) {
+              src = args[1] + ':' + args[2];
+          }
+          var script = document.createElement('script');
+          script.src = src;
+          script.type = 'text/javascript';
+          document.body.appendChild(script);
+          break;
+        case "exitFullscreen":
+          if      (window.document.exitFullscreen)        window.document.exitFullscreen();
+          else if (window.document.mozCancelFullScreen)   window.document.mozCancelFullScreen();
+          else if (window.document.mozCancelFullscreen)   window.document.mozCancelFullScreen();
+          else if (window.document.webkitExitFullscreen)  window.document.webkitExitFullscreen();
+          else if (window.document.msExitFullscreen)      window.document.msExitFullscreen();
+          break;
+      }
+      var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
+      if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
+        var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
+        iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
+      }
+    };
+    window.isPermitted = function(originUrl, whitelisted_domains) {
+      var url = document.createElement('a');
+      url.href = originUrl;
+      var hostname = url.hostname;
+      var result = false;
+      if( typeof hostname !== 'undefined' ) {
+        whitelisted_domains.forEach(function(element) {
+            if( hostname.slice((-1 * element.length - 1)) === '.'.concat(element) ||  hostname === element ) {
+                result = true;
+            }
+        });
+        return result;
+      }
+    };
+    if (window.addEventListener) {
+      window.addEventListener("message", handleIFrameMessage, false);
+    } else if (window.attachEvent) {
+      window.attachEvent("onmessage", handleIFrameMessage);
+    }
+    </script>
+
+					  </section>
+
+                </div>
+
+
+
+</div>
+
+{% if context1 %}
+<div class="row" >
+	<div class="col-md-12" style="text-align: center; color: rgb(252, 252, 252);">
+		<div class="col-md-4"></div>
+		<div class="col-md-4" style="background-color: #032A37;">
+			{{context1}}
+		</div>
+		<div class="col-md-4"></div>
+
+	</div>
+	</div>
+{% endif %}
+
+{% if context %}
+
+<div >
+	<h4 style="color: rgb(32, 65, 212); text-align: left;"> <span >Food Items Detected:  </span></h4>
+
+</div>
+<div class="row">
+	<!-- <div class="col-md-4"></div> -->
+	<div class="col-md-12">
+		<table class="center table   " style="background-color: white; text-align: center;" >
+			<thead class="thead-light">
+			  <tr>
+				<th scope="col">Num</th>
+				<th scope="col">Name</th>
+				<th scope="col">Accuracy</th>
+			  </tr>
+			</thead>
+			<tbody>
+				{% for p in context %}
+			  <tr>
+				<th scope="row">{{forloop.counter}}</th>
+				<td>{{p.name}}</td>
+				<!-- <td><img src="{{p.image_url}}" alt="" width="50px" height="50px"></td> -->
+				<td>{{p.confidence}}</td>
+			  </tr>
+
+			  {% endfor %}
+
+			</tbody>
+		</table>
+	</div>
+	<!-- <div class="col-md-4"></div> -->
+</div>
+
+{% endif %}
+
+
+{% if totalcal %}
+<div >
+	<h4 style="color: rgb(32, 65, 212); text-align: left;"> <span >Processed Food Calorie Distribution : </span></h4>
+
+</div>
+<div class="row">
+    <!-- <div class="col-md-4"></div> -->
+    <div class="col-md-12">
+        <table class="center table   " style="background-color: white; text-align: center;" >
+            <thead class="thead-dark">
+              <tr>
+
+                <!-- <th scope="col">totalcal</th>
+
+                <th scope="col">Total_carb_percentage_out_of_total</th>
+                <th scope="col">Total_Protein_percentage_out_of_total</th>
+                <th scope="col">Total_Fat_percentage_out_of_total</th> -->
+              </tr>
+            </thead>
+
+            <tbody>
+
+
+                <tr>
+                  <td scope="col">totalcal</td>
+                  <td scope="col">{{totalcal.totalcal}}</td>
+                  <!-- <td>{{totalcal.totalcal}}</td>
+                  <td>{{totalcal.Total_carb_percentage_out_of_total}}</td>
+                  <td>{{totalcal.Total_Protein_percentage_out_of_total}}</td>
+                  <td>{{totalcal.Total_Fat_percentage_out_of_total}}</td> -->
+                <tr>
+
+                <tr>
+                  <td scope="col-6">carb_percentage</td>
+                  <td scope="col-6">{{totalcal.Total_carb_percentage}}%</td>
+                <tr>
+
+                <tr>
+                  <td scope="col-6">Protein_percentage</td>
+                  <td scope="col-6">{{totalcal.Total_Protein_percentage}}%</td>
+                <tr>
+
+                  <tr>
+                    <td scope="col-6">Fat_percentage</td>
+                    <td scope="col-6">{{totalcal.Total_Fat_percentage}}%</td>
+                  <tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="col-md-4"></div> -->
+</div>
+
+{% endif %}
+
+{% if categorie_cal %}
+<div >
+	<h4 style="color: rgb(32, 65, 212); text-align: left;"> <span >Nutrient Calorie Distribution: </span></h4>
+
+</div>
+<div class="row">
+    <!-- <div class="col-md-4"></div> -->
+    <div class="col-md-12">
+        <table class="center table   " style="background-color: white; text-align: center;" >
+            <thead class="thead-dark">
+              <tr>
+
+                <!-- <th scope="col">totalcal</th>
+
+                <th scope="col">Total_carb_percentage_out_of_total</th>
+                <th scope="col">Total_Protein_percentage_out_of_total</th>
+                <th scope="col">Total_Fat_percentage_out_of_total</th> -->
+              </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                  <td scope="col">Natural Food </td>
+                  <td scope="col">{{categorie_cal.Processed_food_Percentage}}%</td>
+                <tr>
+
+                <tr>
+                  <td scope="col-6">Processed Food </td>
+                  <td scope="col-6">{{categorie_cal.Ultra_Processed_food_Percentage}}%</td>
+                <tr>
+
+                <tr>
+                  <td scope="col-6">Ultra-Processed Food </td>
+                  <td scope="col-6">{{categorie_cal.Unprocessed_food_Percentage}}%</td>
+                <tr>
+
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="col-md-4"></div> -->
+</div>
+
+{% endif %}
+{% if totalex %}
+
+<div >
+	<h4 style="color:  rgb(32, 65, 212); text-align: left;"> <span >Exercise time (min) for calorie consumption: </span></h4>
+
+</div>
+<div class="row">
+    <!-- <div class="col-md-4"></div> -->
+    <div class="col-md-12">
+        <table class="center table   " style="background-color: white; text-align: center;" >
+            <thead class="thead-dark">
+              <tr>
+
+                <!-- <th scope="col">totalcal</th>
+
+                <th scope="col">Total_carb_percentage_out_of_total</th>
+                <th scope="col">Total_Protein_percentage_out_of_total</th>
+                <th scope="col">Total_Fat_percentage_out_of_total</th> -->
+              </tr>
+            </thead>
+
+            <tbody>
+
+
+                <tr>
+                  <td scope="col">Swimming</td>
+                  <td scope="col">{{totalex.Swimming_exercise_time_to_burn_calories}} (min)</td>
+                  <!-- <td>{{totalcal.totalcal}}</td>
+                  <td>{{totalcal.Total_carb_percentage_out_of_total}}</td>
+                  <td>{{totalcal.Total_Protein_percentage_out_of_total}}</td>
+                  <td>{{totalcal.Total_Fat_percentage_out_of_total}}</td> -->
+                <tr>
+
+                <tr>
+                  <td scope="col-6">Jogging</td>
+                  <td scope="col-6">{{totalex.Jogging_exercise_time_to_burn_calories}}(min)</td>
+                <tr>
+
+                <tr>
+                  <td scope="col-6">Cycling</td>
+                  <td scope="col-6">{{totalex.Cycling_exercise_time_to_burn_calories}}(min)</td>
+                <tr>
+
+                  <tr>
+                    <td scope="col-6">Walking</td>
+                    <td scope="col-6">{{totalex.walking_exercise_time_to_burn_calories}}(min)</td>
+                  <tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="col-md-4"></div> -->
+</div>
+
+
+
+{% endif %}
+
+          </section>
+
+
+
+
+    </main>
+</body>
+</html>

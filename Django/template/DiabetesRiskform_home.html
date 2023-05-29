@@ -1,0 +1,515 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Diatetes Complications Home</title>
+
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}" >
+    <link rel="icon" type="image/png" sizes="32x32"  href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZD0QKCCXK7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HNMLKEX919');
+      gtag('config', 'UA-232399514-1');
+      gtag('config', 'G-ZD0QKCCXK7');
+    </script>
+
+   <!-- Zoho -->
+
+ <script src="https://cdn-in.pagesense.io/js/neerkolipty/5fba548aa2eb47769725f121cd8650e8.js"></script>
+
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '845027796483583');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=845027796483583&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+  </head>
+
+
+  <body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" style="text-decoration: #dc686f; text-decoration-color: #dc686f;" data-navbar-on-scroll="data-navbar-on-scroll">
+        <!-- <div class="container"><a class="navbar-brand" href="index.html"><img src="{% static 'assets/img/gallery/logo.png' %}" width="118" alt="logo" /></a> -->
+        <div class="container">
+          <div class="row">
+            <div class="row">
+              <a class="navbar-brand"  href="{% url 'HOME' %}"><h3>ApnaMD</h3></a>
+            </div>
+            <div  class="row">
+              <p> Clinically Tested AI Diagnostic </p>
+
+            </div>
+          </div>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base" >
+              <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'HOME' %}">Home</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#SymptomCheck">Symptom Check</a></li>
+              <li class="nav-item px-2"><a class="nav-link" href="#about">About Us</a></li>
+
+            </ul>
+            <!-- {% if not user.is_authenticated %}
+            <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'signin' %}">Sign In</a>
+            {% endif %} -->
+            {% if user.is_authenticated %}
+            <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'userprofile' %}">{{request.user}}</a>
+
+            <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'LOGOUT' %}">Logout</a>
+
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+      <section class="py-xxl-10 pb-0" id="home">
+        <div class="bg-holder bg-size" style="background-image:url('/static/assets/img/gallery/hero-bg.png');background-position:top center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row min-vh-xl-100 min-vh-xxl-25">
+            <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{% static '/assets/img/gallery/image (1).png' %}" alt="hero-header" /></div>
+            <div class="col-md-75 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+
+
+                    <form action="{% url 'Diabetes_complications' %}" method="post">
+                    <iframe
+                    id="JotFormIFrame-221881527204453"
+                    title="diabetes complications"
+                    onload="window.parent.scrollTo(0,0)"
+                    allowtransparency="true"
+                    allowfullscreen="true"
+                    allow="geolocation; microphone; camera"
+                    src="https://form.jotform.com/221881527204453"
+                    frameborder="0"
+                    style="
+                    min-width: 100%;
+                    height:539px;
+                    border:none;"
+                    scrolling="no"
+                >
+                </iframe>
+                <script type="text/javascript">
+                    var ifr = document.getElementById("JotFormIFrame-221881527204453");
+                    if (ifr) {
+                    var src = ifr.src;
+                    var iframeParams = [];
+                    if (window.location.href && window.location.href.indexOf("?") > -1) {
+                        iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+                    }
+                    if (src && src.indexOf("?") > -1) {
+                        iframeParams = iframeParams.concat(src.substr(src.indexOf("?") + 1).split("&"));
+                        src = src.substr(0, src.indexOf("?"))
+                    }
+                    iframeParams.push("isIframeEmbed=1");
+                    ifr.src = src + "?" + iframeParams.join('&');
+                    }
+                    window.handleIFrameMessage = function(e) {
+                    if (typeof e.data === 'object') { return; }
+                    var args = e.data.split(":");
+                    if (args.length > 2) { iframe = document.getElementById("JotFormIFrame-" + args[(args.length - 1)]); } else { iframe = document.getElementById("JotFormIFrame"); }
+                    if (!iframe) { return; }
+                    switch (args[0]) {
+                        case "scrollIntoView":
+                        iframe.scrollIntoView();
+                        break;
+                        case "setHeight":
+                        iframe.style.height = args[1] + "px";
+                        break;
+                        case "collapseErrorPage":
+                        if (iframe.clientHeight > window.innerHeight) {
+                            iframe.style.height = window.innerHeight + "px";
+                        }
+                        break;
+                        case "reloadPage":
+                        window.location.reload();
+                        break;
+                        case "loadScript":
+                        if( !window.isPermitted(e.origin, ['jotform.com', 'jotform.pro']) ) { break; }
+                        var src = args[1];
+                        if (args.length > 3) {
+                            src = args[1] + ':' + args[2];
+                        }
+                        var script = document.createElement('script');
+                        script.src = src;
+                        script.type = 'text/javascript';
+                        document.body.appendChild(script);
+                        break;
+                        case "exitFullscreen":
+                        if      (window.document.exitFullscreen)        window.document.exitFullscreen();
+                        else if (window.document.mozCancelFullScreen)   window.document.mozCancelFullScreen();
+                        else if (window.document.mozCancelFullscreen)   window.document.mozCancelFullScreen();
+                        else if (window.document.webkitExitFullscreen)  window.document.webkitExitFullscreen();
+                        else if (window.document.msExitFullscreen)      window.document.msExitFullscreen();
+                        break;
+                    }
+                    var isJotForm = (e.origin.indexOf("jotform") > -1) ? true : false;
+                    if(isJotForm && "contentWindow" in iframe && "postMessage" in iframe.contentWindow) {
+                        var urls = {"docurl":encodeURIComponent(document.URL),"referrer":encodeURIComponent(document.referrer)};
+                        iframe.contentWindow.postMessage(JSON.stringify({"type":"urls","value":urls}), "*");
+                    }
+                    };
+                    window.isPermitted = function(originUrl, whitelisted_domains) {
+                    var url = document.createElement('a');
+                    url.href = originUrl;
+                    var hostname = url.hostname;
+                    var result = false;
+                    if( typeof hostname !== 'undefined' ) {
+                        whitelisted_domains.forEach(function(element) {
+                            if( hostname.slice((-1 * element.length - 1)) === '.'.concat(element) ||  hostname === element ) {
+                                result = true;
+                            }
+                        });
+                        return result;
+                    }
+                    };
+                    if (window.addEventListener) {
+                    window.addEventListener("message", handleIFrameMessage, false);
+                    } else if (window.attachEvent) {
+                    window.attachEvent("onmessage", handleIFrameMessage);
+                    }
+                    </script>
+                    </form>
+
+
+
+                    <h1 class="fw-light font-base fs-6 fs-xxl-5"><strong>Medical Advice Anytime. </strong> <br /><strong>AI guided and Clinically Based.</strong><br /><strong>Honest and Free.</strong></h1>
+                    <p class="fs-1 mb-5" >Apna MD will diagnose your medical condition using clinically based algorithms. You can add your x-ray and blood tests to improve the accuracy of results. </p><a class="btn btn-lg btn-primary rounded-pill" href="#!" role="button">App Coming Soon</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="py-5" id="SymptomCheck">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <!-- <div class="bg-holder bg-size" style="background-image:url(/static/assets/img/gallery/bg-departments.png);background-position:top center;background-size:contain;"> -->
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center" >Click on your disease symptom to diagnose your medical problem</h1>
+
+              <!-- <p class="fw-light font-base fs-2 fs-xxl-1">
+                A symptom is an indication of a disorder or disease. It is a change from your routine biological functions that indicates an underlying condition. Examples of symptoms include headaches, fever, cough etc.
+Symptoms can be recent (acute), recurrent (relapsing) or long standing (chronic).
+We have analyzed clinical trial results seeking a correlation between symptoms and final diagnosis. This data is matched and added with recent epidemiological changes (COVID) and professional experience to derive an AI Algorithm for diagnosing symptoms. The use of the algorithm matches a clinical consultation that you would have with your doctor. The diagnostic outcome is also directly corelated to the amount of information that you share about yourself.
+              </p> -->
+            </div>
+          </div>
+        </div>
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section class="py-0">
+
+
+          <!-- end of .container-->
+
+        </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="bg-secondary">
+        <div class="bg-holder" style="background-image:url(static/assets/img/gallery/bg-eye-care.png);background-position:center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5 col-xxl-7"><img class="img-fluid" src="{% static '/assets/img/gallery/image_2022_06_10T05_34_40_624Z.png' %}" alt="..." /></div>
+            <div class="col-md-7 col-xxl-5 text-center text-md-start">
+              <h2 class="fw-bold text-light mb-4 mt-4 mt-lg-0">AI Medical Diagnostics</h2>
+              <p class="text-light">Our Medical Diagnostic Algorithms incorporate the frequency, sensitivity and specificity of various clinical symptoms and match them to underlying disease conditions. The algorithm is self learning and will match multiple parameters from your condition to provide you
+                 with a detailed diagnostic model. While the model does not replace your current healthcare setup, it aims to better equip you with the required information and statistics to take a better informed decision about your health and well being. </p>
+              <!-- <div class="py-3"><a class="btn btn-lg btn-light rounded-pill" href="#!" role="button">Learn more </a></div> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="pb-0" id="about">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(static/assets/img/gallery/about-us.png);background-position:top center;background-size:contain;">
+              </div>
+             <!-- /.bg-holder -->
+
+              <h1 class="text-center">ABOUT US</h1>
+            </div>
+          </div>
+        </div>
+        <!-- end of .container -->
+
+     </section>
+     <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-5">
+        <div class="bg-holder bg-size" style="background-image:url('/static/assets/img/gallery/about-bg.png');background-position:top center;background-size:contain;">
+        </div>
+        <!--/.bg-holder-->
+
+     <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 order-lg-1 mb-5 mb-lg-0"><img class="fit-cover rounded-circle w-100" src="{% static 'assets/img/gallery/health-care.png' %}" alt="..." /></div>
+            <div class="col-md-6 text-center text-md-start">
+              <h2 class="fw-bold mb-4">We are developing an AI healthcare. <br class="d-none d-sm-block" /></h2>
+              <p class="fw-light font-base fs-2 fs-xxl-1">
+                 <br>
+                Access to quality healthcare is limited. Location and financial limitations restrict quality healthcare access. We believe that medical information and access to diagnostics should be universal and free. We have developed an AI diagnostic module that incorporates all the clinical evidence and experience to achieve an unbiased diagnostic module. Our aim is to make the process simple and accurate. The system is free to use. It is secure and your data is not shared. Your contribution helps to improve the accuracy of the model and in turn benefits others using the system.
+              </p>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- <section> begin ============================-->
+      <section class="py-5">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3">
+              <div class="bg-holder bg-size" style="background-image:url(static/assets/img/gallery/people.png);background-position:top center;background-size:contain;">
+              </div>
+              <!--/.bg-holder-->
+
+              <h1 class="text-center">PEOPLE WHO LOVE US</h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- end of .container-->
+
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+      <section class="py-8">
+        <div class="bg-holder bg-size" style="background-image:url(static/assets/img/gallery/people-bg-1.png);background-position:center;background-size:cover;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row align-items-center offset-sm-1">
+            <div class="carousel slide" id="carouselPeople" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                  <div class="row h-100">
+                    <div class="col-sm-3 text-center"><img src="static/assets/img/gallery/f4ff4f31-f131-4c96-a7af-10cc5c3d0737.jpg" width="100" alt="" />
+                      <h5 class="mt-3 fw-medium text-secondary">Haseeb Ullah</h5>
+                      <p class="fw-normal mb-0">Data Scientist</p>
+                    </div>
+                    <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                      <h2>Fantastic Response!</h2>
+                      <div class="my-2"><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star-half-alt me-2"></i><i class="far fa-star"></i></div>
+                      <p>This health care serives help me to find out disease as well as help me out how can I fight with that disease, Great Services.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <div class="row h-100">
+                    <div class="col-sm-3 text-center"><img src="static/assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                      <h5 class="mt-3 fw-medium text-secondary">Jhon Doe</h5>
+                      <p class="fw-normal mb-0">UI/UX Designer</p>
+                    </div>
+                    <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                      <h2>Fantastic Response!</h2>
+                      <div class="my-2"><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star-half-alt me-2"></i><i class="far fa-star"></i></div>
+                      <p>This medical and health care facility distinguishes itself from the competition by providing technologically advanced medical and health care. A mobile app and a website are available via which you can easily schedule appointments, get online consultations, and see physicians, who will assist you through the whole procedure. And all of the prescriptions, medications, and other services they offer are 100% genuine, medically verified, and proved. I believe that the Livedoc staff is doing an outstanding job. Highly recommended their health care services.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row h-100">
+                    <div class="col-sm-3 text-center"><img src="static/assets/img/gallery/people-who-loves.png" width="100" alt="" />
+                      <h5 class="mt-3 fw-medium text-secondary">Jeny Doe</h5>
+                      <p class="fw-normal mb-0">Web Designer</p>
+                    </div>
+                    <div class="col-sm-9 text-center text-sm-start pt-3 pt-sm-0">
+                      <h2>Fantastic Response!</h2>
+                      <div class="my-2"><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star me-2"></i><i class="fas fa-star-half-alt me-2"></i><i class="far fa-star"></i></div>
+                      <p>This medical and health care facility distinguishes itself from the competition by providing technologically advanced medical and health care. A mobile app and a website are available via which you can easily schedule appointments, get online consultations, and see physicians, who will assist you through the whole procedure. And all of the prescriptions, medications, and other services they offer are 100% genuine, medically verified, and proved. I believe that the Livedoc staff is doing an outstanding job. Highly recommended their health care services.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="position-relative z-index-2 mt-5">
+                  <ol class="carousel-indicators">
+                    <li class="active" data-bs-target="#carouselPeople" data-bs-slide-to="0"></li>
+                    <li data-bs-target="#carouselPeople" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselPeople" data-bs-slide-to="2"> </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+      <section class="py-0 bg-secondary">
+        <div class="bg-holder opacity-25" style="background-image:url(static/assets/img/gallery/dot-bg.png);background-position:top left;margin-top:-3.125rem;background-size:auto;">
+        </div>
+        <!--/.bg-holder-->
+
+        <div class="container">
+          <div class="row py-8">
+
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0">
+              <h1 class="text-light my-4"><strong>ApnaMD</strong>
+              <p class="text-light my-4">Clinically Tested AI Diagnostics
+               </p>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+              <h5 class="lh-lg fw-bold mb-4 text-light font-sans-serif">Departments</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="footer-link" href="#!">Skin care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Cardiac care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Heart care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Lung Care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Fever Care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">GI Care</a></li>
+              </ul>
+            </div>
+            <!-- <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif">Departments</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="footer-link" href="#!">Lung Care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">Fever Care</a></li>
+                <li class="lh-lg"><a class="footer-link" href="#!">GI Care</a></li>
+              </ul>
+            </div> -->
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light mb-4 font-sans-serif"> Customer Care</h5>
+              <ul class="list-unstyled mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="footer-link" href="#about">About Us</a></li>
+                <li class="lh-lg"><a class="footer-link" href="{% url 'termsconditions' %}">Terms Of Use</a></li>
+                <li class="lh-lg"><a class="footer-link" href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-primary">
+
+          <div class="container">
+            <div class="row justify-content-md-between justify-content-evenly py-4">
+              <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                <p class="fs--1 my-2 fw-bold text-200">All rights Reserved &copy; ApnaMD, 2022</p>
+              </div>
+              <!-- <div class="col-12 col-sm-8 col-md-6">
+                <p class="fs--1 my-2 text-center text-md-end text-200"> Made with&nbsp;
+                  <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="#F95C19" viewBox="0 0 16 16">
+                    <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
+                  </svg>&nbsp;by&nbsp;<a class="fw-bold text-info" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
+                </p>
+              </div> -->
+            </div>
+          </div>
+          <!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+      </section>
+    </main>
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="static/vendors/@popperjs/popper.min.js"></script>
+    <script src="static/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="static/vendors/is/is.min.js"></script>
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="static/vendors/fontawesome/all.min.js"></script>
+    <script src="static/assets/js/theme.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&amp;family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&amp;display=swap" rel="stylesheet">
+  </body>
+
+</html>

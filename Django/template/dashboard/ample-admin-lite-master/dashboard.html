@@ -1,0 +1,612 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+        content="Ample Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Ample Admin Lite Template by WrapPixel</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'dashboard/plugins/images/favicon.png' %}">
+    <!-- Custom CSS -->
+    <link href="{% static 'dashboard/plugins/bower_components/chartist/dist/chartist.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'dashboard/plugins/bower_components/chartist/dist/chartist.min.css' %}">
+    <!-- Custom CSS -->
+    <link href="{% static 'dashboard/css/style.min.css' %}" rel="stylesheet" />
+    
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="dashboard.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img src="https://apnamd.ai/images/Apna%20MD%20LOGO.png" style="width: 50%; height: 50%;" alt="homepage" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                   
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+                        {% if user.is_authenticated %}
+                     
+                         
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'HOME' %}">Home</a>
+                        </li> 
+                         <li class="nav-item">
+                             <a class="nav-link" href="{% url 'LOGOUT' %}">Logout</a>
+                         </li> 
+                          
+                        {% endif %}
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="dashboard.html"
+                                aria-expanded="false">
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        
+                        
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        {% if profiledata %}
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" style="width: 60%;
+        margin-left: 277px;
+        margin-top: 52px;
+        " >
+            <h4 style="    font-size: 2.125rem;
+            font-weight: 700;" class="page-title">Profile</h4>
+        </div>
+    <div class=" col text-center text-md-left mb-3 mb-md-0" style="background: whitesmoke;">
+        <div>
+            <table  style="width: 60%;
+            margin-left: 277px;
+            margin-top: 52px;
+            " >
+        
+                <tbody>
+                    
+                    
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Name:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="name-display">{{ profiledata.name }}</span>
+                            <input type="text" id="name-input" name="name" value="{{ profiledata.name }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="name-edit-btn" onclick="toggleEdit('name')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="name-save-btn" onclick="saveEdit('name')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+                  
+                    <tr>
+                        <td style="width:20%; text-align:left;">Email:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="email-display">{{ profiledata.gmail }}</span>
+                            <input type="text" id="email-input" name="gmail" value="{{ profiledata.gmail }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="email-edit-btn" onclick="toggleEdit('email')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="email-save-btn" onclick="saveEdit('email')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">WhatsApp:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="whatsapp-display">{{ profiledata.whatsapp }}</span>
+                            <input type="text" id="whatsapp-input" name="whatsapp" value="{{ profiledata.whatsapp }}" style="display:none;" readonly>
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="whatsapp-edit-btn" onclick="toggleEdit('whatsapp')" style="display:none;"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="whatsapp-save-btn" onclick="saveEdit('whatsapp')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Gender</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="gender-display">{{ profiledata.gender }}</span>
+                            <input type="text" id="gender-input" name="gender" value="{{ profiledata.gender }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="gender-edit-btn" onclick="toggleEdit('gender')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="gender-save-btn" onclick="saveEdit('gender')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+    {% endif %} 
+
+    {% if bmidata %}
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" style="width: 60%;
+        margin-left: 277px;
+        margin-top: 52px;
+        " >
+            <h4 style="    font-size: 2.125rem;
+            font-weight: 700;" class="page-title">BMI Report</h4>
+        </div>
+    <div class=" col text-center text-md-left mb-3 mb-md-0" style="background: whitesmoke;">
+        <div>
+            <table  style="width: 60%;
+            margin-left: 277px;
+            margin-top: 52px;
+            " >
+        
+                <tbody>
+                    
+                    
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Weight:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="Weight-display">{{ bmidata.Weight }}</span>
+                            <input type="number" id="Weight-input" name="Weight" value="{{ bmidata.Weight }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="Weight-edit-btn" onclick="toggleEdit('Weight')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="Weight-save-btn" onclick="saveEdit('Weight')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+                  
+                    <tr>
+                        <td style="width:20%; text-align:left;">Height:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="Height-display">{{ bmidata.Height }}</span>
+                            <input type="number" id="Height-input" name="Height" value="{{ bmidata.Height }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="Height-edit-btn" onclick="toggleEdit('Height')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="Height-save-btn" onclick="saveEdit('Height')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">BMI:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="BMI-display">{{ bmidata.BMI }}</span>
+                            <input type="number" id="BMI-input" name="BMI" value="{{ bmidata.BMI }}" style="display:none;" readonly>
+                        </td>
+                        
+                    </tr>
+                    
+
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+    {% endif %} 
+
+    {% if medicaldata %}
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" style="width: 60%;
+        margin-left: 277px;
+        margin-top: 52px;
+        " >
+            <h4 style="    font-size: 2.125rem;
+            font-weight: 700;" class="page-title">Medical Data</h4>
+        </div>
+    <div class=" col text-center text-md-left mb-3 mb-md-0" style="background: whitesmoke;">
+        <div>
+            <table  style="width: 60%;
+            margin-left: 277px;
+            margin-top: 5px;
+            " >
+        
+                <tbody>
+                    
+                    
+                    <tr>
+                        <td style="width:20%; text-align:left;">Smoke:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_smoke-display">{{ medicaldata.chest_smoke }}</span>
+                            <input type="text" id="chest_smoke-input" name="chest_smoke" value="{{ medicaldata.chest_smoke }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_smoke-edit-btn" onclick="toggleEdit('chest_smoke')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_smoke-save-btn" onclick="saveEdit('chest_smoke')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+                  
+                    <tr>
+                        <td style="width:20%; text-align:left;">Alcohal:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_alcohol-display">{{ medicaldata.chest_alcohol }}</span>
+                            <input type="text" id="chest_alcohol-input" name="chest_alcohol" value="{{ medicaldata.chest_alcohol }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_alcohol-edit-btn" onclick="toggleEdit('chest_alcohol')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_alcohol-save-btn" onclick="saveEdit('chest_alcohol')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Covid:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_recent_covid-display">{{ medicaldata.chest_recent_covid }}</span>
+                            <input type="text" id="chest_recent_covid-input" name="chest_recent_covid" value="{{ medicaldata.chest_recent_covid }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_recent_covid-edit-btn" onclick="toggleEdit('chest_recent_covid')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_recent_covid-save-btn" onclick="saveEdit('chest_recent_covid')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Diabetes</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_diagnose_diabetes-display">{{ medicaldata.chest_diagnose_diabetes }}</span>
+                            <input type="text" id="chest_diagnose_diabetes-input" name="chest_diagnose_diabetes" value="{{ medicaldata.chest_diagnose_diabetes }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_diagnose_diabetes-edit-btn" onclick="toggleEdit('chest_diagnose_diabetes')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_diagnose_diabetes-save-btn" onclick="saveEdit('chest_diagnose_diabetes')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Hypertention</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_diagnose_Hypertension-display">{{ medicaldata.chest_diagnose_Hypertension }}</span>
+                            <input type="text" id="chest_diagnose_Hypertension-input" name="chest_diagnose_Hypertension" value="{{ medicaldata.chest_diagnose_Hypertension }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_diagnose_Hypertension-edit-btn" onclick="toggleEdit('chest_diagnose_Hypertension')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_diagnose_Hypertension-save-btn" onclick="saveEdit('chest_diagnose_Hypertension')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Asthama</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_diagnose_Asthma-display">{{ medicaldata.chest_diagnose_Asthma }}</span>
+                            <input type="text" id="chest_diagnose_Asthma-input" name="chest_diagnose_Asthma" value="{{ medicaldata.chest_diagnose_Asthma }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_diagnose_Asthma-edit-btn" onclick="toggleEdit('chest_diagnose_Asthma')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_diagnose_Asthma-save-btn" onclick="saveEdit('chest_diagnose_Asthma')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Cholestrol</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="chest_diagnose_High_Cholesterol-display">{{ medicaldata.chest_diagnose_High_Cholesterol }}</span>
+                            <input type="text" id="chest_diagnose_High_Cholesterol-input" name="chest_diagnose_High_Cholesterol" value="{{ medicaldata.chest_diagnose_High_Cholesterol }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="chest_diagnose_High_Cholesterol-edit-btn" onclick="toggleEdit('chest_diagnose_High_Cholesterol')"><i class="fas fa-edit fa-lg"></i></button>
+                            <button id="chest_diagnose_High_Cholesterol-save-btn" onclick="saveEdit('chest_diagnose_High_Cholesterol')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
+    {% endif %} 
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">Dashboard</h4>
+                    </div>
+                    
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Three charts -->
+                <!-- ============================================================== -->
+                {% if totalmodules %}
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Modules Completed</h3>
+                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                <li>
+                                    <div id="sparklinedash"><canvas width="67" height="30"
+                                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                                    </div>
+                                </li>
+                                <li class="ms-auto"><span class="counter text-success">{{totalmodules|length}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                
+                <!-- RECENT SALES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="white-box">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0">Recent Diagnosis</h3>
+                                
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">#</th>
+                                            <th style="border-top-0">Unique Id</th>
+                                            <th style="border-top-0">Module Name</th>
+                                            <th style="border-top-0">Diagnosis</th>
+                                            <th style="border-top-0">Date of testing</th>
+                                            <th style="border-top-0">Pdf File</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for i in totalmodules %}
+                                          <tr>
+                                            <td style="txt-oflo">{{forloop.counter }}</td>
+                                            <td style="txt-oflo">{{ i.uniqueid }}</td>
+                                            <td style="txt-oflo">{{ i.Modulename }}</td>
+                                            <td style="width:20%; text-align:left;">{{ i.Diagnosis }}</td>
+                                            <td style="txt-oflo">{{ i.date }}</td>
+                                            <td style="txt-oflo">
+                                              <a href="{{ i.link }}">Download File<i class="fa fa-download" aria-hidden="true"></i></a>
+                                              
+                                            </td>
+                                          </tr>
+                                    {% endfor %}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                
+                {% endif %}
+                
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center"> 2021 © Ample Admin brought to you by <a
+                    href="https://www.wrappixel.com/">wrappixel.com</a>
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script>
+        // Define a function to toggle between display mode and edit mode
+        function toggleEdit(fieldName) {
+            const displayEl = document.querySelector(`#${fieldName}-display`);
+            const inputEl = document.querySelector(`#${fieldName}-input`);
+            const editBtn = document.querySelector(`#${fieldName}-edit-btn`);
+            const saveBtn = document.querySelector(`#${fieldName}-save-btn`);
+    
+            if (displayEl.style.display === 'none') {
+                // Switch to display mode
+                displayEl.style.display = 'inline';
+                inputEl.style.display = 'none';
+                editBtn.style.display = 'inline';
+                saveBtn.style.display = 'none';
+            } else {
+                // Switch to edit mode
+                displayEl.style.display = 'none';
+                inputEl.style.display = 'inline';
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'inline';
+            }
+        }
+    
+        // Define a function to save the edited data
+        function saveEdit(fieldName) {
+            const inputEl = document.querySelector(`#${fieldName}-input`);
+            const displayEl = document.querySelector(`#${fieldName}-display`);
+            const weight = document.querySelector(`#Weight-display`).textContent;
+            const height = document.querySelector(`#Height-display`).textContent;
+            const bmiEl = document.querySelector(`#BMI-display`);
+            const bmiInputEl = document.querySelector(`#BMI-input`);
+
+            let bmi = calculateBMI(weight, height);
+
+            if (fieldName === 'Weight' || fieldName === 'Height') {
+                bmiEl.textContent = bmi;
+                bmiInputEl.value = bmi;
+            } else {
+                bmi = bmiInputEl.value;
+            }
+
+            const data = new FormData();
+            data.append(fieldName, inputEl.value);
+            data.append('BMI', bmi);
+
+            fetch('/update-profile', {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Update the display element with the new value
+                    displayEl.textContent = inputEl.value;
+
+                    // Switch back to display mode
+                    toggleEdit(fieldName);
+                } else {
+                    alert('Failed to update profile. Please try again later.');
+                }
+            })
+            .catch(error => {
+                alert('Failed to update profile. Please try again later.');
+                console.error(error);
+            });
+        }
+
+        function calculateBMI(weight, height) {
+            const heightInMeters = height;
+            return (weight / (heightInMeters ** 2)).toFixed(2);
+        }
+
+        // Add event listeners to the input elements
+        const emailInput = document.querySelector('#email-input');
+        const numberInput = document.querySelector('#number-input');
+    
+        emailInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                saveEdit('email');
+            }
+        });
+    
+        numberInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                saveEdit('number');
+            }
+        });
+    </script>
+    <script src="{% static 'dashboard/plugins/bower_components/jquery/dist/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'dashboard/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+    <script src="{% static 'dashboard/js/app-style-switcher.js' %}"></script>
+    <script src="{% static 'dashboard/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+    
+    <!--Wave Effects -->
+    <script src="{% static 'dashboard/js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'dashboard/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'dashboard/js/custom.js' %}"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="{% static 'dashboard/plugins/bower_components/chartist/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'dashboard/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/pages/dashboards/dashboard1.js' %}"></script>
+</body>
+
+</html>

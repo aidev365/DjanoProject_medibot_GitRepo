@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/bootstrap/css/index_style1.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/style1.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/customnavbar.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+
+    <title>Home</title>
+</head>
+
+<body >
+    
+    <div>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark background static-top ">
+            <div class="container">
+            <!-- <a class="navbar-brand" href="#">
+                <img src="/static/images/homeback.jpg" alt="..." height=50px>
+            </a> -->
+                <a class="navbar-brand" href="#"> <h2 style="color: black;">Medical specialist</h2> </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-block  " style="color: black;" aria-current="page" href="{% url 'HOME' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-block  " style="color: black;" aria-current="page" href="{% url 'LOGOUT' %}">LogOut</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>  
+   
+      <div class="p-5" ></div>
+      <div class="p-5" ></div>
+      <!-- <div class="p-5" ></div> -->
+      {% if context %}
+      
+      <div class="row">
+          <!-- <div class="col-md-4"></div> -->
+          <div class="col-md-12">
+              
+              <table class="center table   " style="background-color: white; text-align: center;" >
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">UserName</th>
+                      <th scope="col">Sex</th>
+                      <th scope="col">DOB</th>
+                      <th scope="col">Height</th>
+                      <th scope="col">Weight</th>
+                      <th scope="col">BMI</th>
+                      <th scope="col">Activity</th>
+                      <th scope="col">Diabetes</th>
+                      <th scope="col">Hypertension</th>
+                      <th scope="col">CurrentSmoker</th>
+                      <th scope="col">PastSmoker</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for data in context %}
+                    <tr>
+                        <td>{{data.username}}</td>
+                      
+                        <td>{{data.user_detail.sex}}</td>
+                        <td>{{data.user_detail.dob}}</td>
+                        <td>{{data.user_detail.heigh}}cm</td>
+                        <td>{{data.user_detail.weigth}}kg</td>
+                        <td>{{data.user_detail.BMI}}</td>
+                        <td>{{data.user_detail.activity}}</td>
+                        <td>{{data.user_detail.Diabetes}}</td>
+                        <td>{{data.user_detail.Hypertension}}</td>
+                        <td>{{data.user_detail.CurrentSmoker}}</td>
+                        <td>{{data.user_detail.PastSmoker}}</td>
+                  
+                      
+                    </tr>
+                    
+                    {% endfor %}
+                   
+                  </tbody>
+              </table>
+          </div>
+          <!-- <div class="col-md-4"></div> -->
+      </div>
+      
+      
+      {% endif %}
+  
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

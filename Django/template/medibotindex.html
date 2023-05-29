@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+	<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> -->
+	
+
+	<style type="text/css">
+	
+		@font-face {
+		  font-family: 'Inter-Regular';
+		  src: url('fonts/Inter-Regular.ttf');
+		}	
+
+	
+		@font-face {
+		  font-family: 'Inter-Light';
+		  src: url('fonts/Inter-Light.ttf');
+		}	
+	
+		@font-face {
+		  font-family: 'Inter-Bold';
+		  src: url('fonts/Inter-Bold.ttf');
+		}	
+
+
+		*{
+			font-family: 'Inter-Regular', sans-serif;
+		}
+
+		.footer .social-icons{
+			color: #fff;
+			text-decoration: none;
+		    background: #1a2c50;
+		    height: 30px;
+		    width: 30px;
+		    line-height: 30px;
+		    text-align: center;
+		    border-radius: 50px;
+		}
+
+		.footer .social-icons:hover{
+		    background: #2a71fd;
+		}
+
+
+		.carousel-icons{
+		    background: #f0f1f4;
+		    height: 30px;
+		    width: 30px;
+		    line-height: 30px;
+		    text-align: center;
+		    border-radius: 50px;
+		}
+
+
+		.carousel-icons:hover{
+		    background: #2a71fd;
+		    color: #fff;
+		}
+
+		.shadow{
+			-webkit-box-shadow: 0px 2px 11px -1px rgba(46,74,117,0.54);
+			-moz-box-shadow: 0px 2px 11px -1px rgba(46,74,117,0.54);
+			box-shadow: 0px 2px 11px -1px rgba(46,74,117,0.54);
+		}
+
+
+
+		.section-4569 .custom-container{
+			width: 60%; margin: 0 auto;
+		}
+
+
+		.track{
+			width: 1px; 
+			background-color: #2a73fe; 
+			margin: 0 auto; 
+			height: 100%;
+		}
+
+		.track .track-step{
+		    height: 30px;
+		    width: 30px;
+		    background: #2a73ff;
+		    text-align: center;
+		    border-radius: 50px;
+		    margin-left: -15px;
+		    color: #fff;
+		    line-height: 31px;
+		    margin-bottom: 250px;
+		}
+
+		.accordion-container{
+			background: #01143c; padding-top: 50px;
+		}
+
+
+		.accordion-container>div{
+		    background: url('images/Vector Smart Object1.png');
+		    background-repeat: no-repeat;
+		    background-position: right;
+		    background-position-y: 182px;
+		}
+
+
+		.pricing-section{position: relative;padding-bottom: 200px;}
+
+
+
+		.start-trail-input {
+		     line-height: 40px ; 
+		     border: 0; 
+		     outline: none;
+		     padding: 0;
+		     width: 100%;
+		}
+		
+		
+		@media only screen and (max-width: 600px) {
+			
+			.section-4569 .custom-container{
+				width: 80%; margin: 0 auto;
+			}
+			
+			.track{
+				margin: 0 0 0 23px;
+			}
+
+			.track .track-step{
+			   margin-bottom: 440px;
+			}
+
+			.track .track-step:nth-child(2){
+			   margin-bottom: 356px;
+			}
+
+			.track .track-step:nth-child(3){
+			   margin-bottom: 415px;
+			}
+
+
+			.accordion-container>div{
+				background-position-y: 625px;
+				background-position-x: center;
+			}
+
+
+			.pricing-section{padding-bottom:500px;}
+			
+			.start-trail-button {
+                font-size: 11px !important;
+                line-height: 25px;
+                padding: 8px 8px !important;
+			}
+			
+			.start-trail-input {
+    		     width: 65%;
+    		     font-size: 14px;
+    		}
+    		
+    		
+		}
+
+
+
+
+		.clients-section img {
+		  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+		  filter: grayscale(100%);
+		}
+
+
+
+
+		.accordion {
+		    background: transparent !important;
+		}
+
+
+		.accordion-header{
+			position: relative;
+		}
+
+
+		.accordion-item{
+		    background: transparent !important;
+		    border: none;
+		    border-left: #2a73fe;
+		    border-left-style: solid;
+		    border-radius: 1px !important;
+
+		}
+
+		.accordion-button {
+		    background: transparent !important;
+		    color: #fff !important;
+		}
+
+
+		.accordion-icon {
+		    height: 20px;
+		    width: 20px;
+		}
+
+		.accordion-button::after{
+			display: none;
+		}
+
+
+		.accordion-dropdown-icon {
+		    position: absolute;
+		    right: 10px;
+		}
+
+
+		.accordion-body{
+			color: #fff;
+			opacity: 0.4;
+		    background: #021c4f !important;
+		}
+
+
+		.accordion-button:focus {
+		    box-shadow: none;
+		    border-color: rgba(0,0,0,.125);
+		    background: #021c4f !important;
+		}
+
+
+
+		.box {
+/*			background: rgb(42,113,253);
+			background: radial-gradient(circle, rgba(42,113,253,1) 0%, rgba(22,69,160,1) 0%, rgba(42,113,253,1) 100%);
+		  --mask:
+		    radial-gradient(156.52px at 50% calc(100% - 210.00px),#000 99%,#0000 101%) calc(50% - 140px) 0/280px 100%,
+		    radial-gradient(156.52px at 50% calc(100% + 140.00px),#0000 99%,#000 101%) 50% calc(100% - 70px)/280px 100% repeat-x;
+		  -webkit-mask: var(--mask);
+		          mask: var(--mask);*/
+		    background: url('images/Rectangle 8.png');
+		    background-size: cover;
+		    background-repeat: no-repeat;
+		    background-position-y: -50px;
+		}
+
+
+
+
+	</style>
+
+</head>
+<body>
+
+
+
+<div style="background: #041330;">
+	<nav class="navbar navbar-expand-lg py-3">
+	  <div class="container">
+
+	    <a class="navbar-brand" href="#" style="width: 116px;">
+	    	<img class="w-100" src="images/MEDIBOT logo Purple_GIF.gif" >
+	    </a>
+	    
+
+	    <a class="nav-link text-white text-center d-inline-block d-md-none" style="width: 150px;background: #2a73fe;border-radius: 6px;padding: 5px 0;" aria-current="page" href="#">Start Demo</a>
+
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <!-- <span class="navbar-toggler-icon"></span> -->
+	      <i class="fa-sharp fa-solid fa-bars text-white" ></i>
+	    </button>
+
+
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+	        <li class="nav-item mx-md-3 mx-0">
+	          <a class="nav-link text-white" aria-current="page" href="#">Benefits</a>
+	        </li>
+
+	        <li class="nav-item mx-md-3 mx-0">
+	          <a class="nav-link text-white" aria-current="page" href="#">GP Practice </a>
+	        </li>
+
+	        <li class="nav-item mx-md-3 mx-0">
+	          <a class="nav-link text-white" aria-current="page" href="#">Physiotherapy</a>
+	        </li>
+
+	        <li class="nav-item mx-md-3 mx-0">
+	          <a class="nav-link text-white" aria-current="page" href="#">Occupational Health</a>
+	        </li>
+
+	        <li class="nav-item rounded d-none d-md-block" style=" background: #2a73fe; ">
+	          <a class="nav-link text-white text-center" style="width: 150px;" aria-current="page" href="#">Learn More</a>
+	        </li>
+
+	      </ul>
+
+	    </div>
+	  </div>
+	</nav>
+</div>
+
+
+
+<div style="background: #041330;">
+	<div style="background: url('images/Vector Smart Object.png');">
+		<div class="container" style="padding-top: 100px ; padding-bottom: 150px;">
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-5 mb-4">
+
+					<div class="text-md-start text-center text-white fs-1 fw-bold mb-4" style=" line-height: 46px; ">
+						Intelligent ChatBot to Supercharge your healthcare website
+					</div>
+
+
+					<div class="text-md-start text-center mb-5" style="color: lightgray; opacity: 0.4;">
+						Increase patient interaction and optimize practice productivity
+
+					</div>
+
+
+					<div class=" bg-white  py-2 rounded" style=" position: relative; " >
+					    
+							<input type="" name="" placeholder="Enter your business email " class="px-3 start-trail-input" style="">
+							
+							<a 
+								href="#" 
+								class="start-trail-button col fs-6 m-2 py-2 rounded text-center text-decoration-none text-white px-3 shadow " 
+								style="top: 0;background: #2a73fe;float: right;position: absolute;right: 0;"
+							>Start your free trail</a>
+
+					</div>
+
+				</div>
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-5 text-center"> 
+					<img class="w-75" src="images/support.png">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="clients-section" style="border-bottom: 1px solid #ececec;">
+	<div class="container py-3">
+		<div class="row">
+
+			<div class="col-md-2 mb-3">
+				Proudly powering AI chatbot engagement for 
+			</div>
+
+			<div class="col-md-10">
+				<div class="row">
+					<div class="col-md-2 col-4  mb-2 text-center "  > 
+						<img src="images/city medical practice.png"  style="max-height: 70px; margin-top: 14px;"  class="w-75">
+					</div>
+					<div class="col-md-2  col-4  mb-2 text-center "> 
+						<img src="images/Layer 8.png"  style="max-height: 70px; "  class="w-75">
+					</div>
+					<div class="col-md-2 col-4  mb-2 text-center " > 
+						<img src="images/Layer 11.png"  style="max-height: 70px; "  class="w-75">
+					</div>
+					<div class="col-md-2 col-4  mb-2 text-center "> 
+						<img src="images/Layer 9.png"  style="max-height: 70px; "  class="w-75">
+					</div>
+					<div class="col-md-2 col-4  mb-2 text-center "> 
+						<img src="images/Layer 10.png" style="max-height: 70px; "   class="w-75">
+					</div>
+					<div class="col-md-2 col-4  mb-2 text-center "> 
+						<img src="images/Layer 12.png"  style="max-height: 70px; "  class="w-75">
+					</div>
+					<div class="col-md-2 col-4   mb-2 text-center d-none"> 
+						<img src="images/Layer 13.png"  style="max-height: 70px; "  class="w-75">
+					</div>
+				</div>
+				<div></div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+	<div class="section-4569 " style="padding-bottom: 100px;">
+
+
+		<div class="container py-5">
+			<div class="row">
+				
+				<div class="col-12 text-center fs-2 fw-bold">
+					<div>Empower patients to do more on your website</div>
+				</div>
+				
+				<div class="mb-5 text-center " style="">
+					Increase clinic attendance and compliance at your practice
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="position-relative">
+			<div class="container">
+
+				<div class="row mb-2">
+
+					<div class="col-md-6 text-center mb-5">
+						<div  class="custom-container"   >
+							<img src="images/Rectangle 4.png" class="w-100">
+						</div>
+					</div>
+
+					<div class="col-md-6  mb-5">
+						<div  class="custom-container" >
+							<div class="fs-4 fw-bold mb-3" >Patient initiated appointment bookings.</div>
+							<div>Medibot makes it easy for your patients to book appointments using an interactive system. Automated reminder settings reduce no-shows and can be set as optional.</div>
+						</div>
+					</div>
+
+				</div>
+				
+				<div class="row mb-2">
+
+
+					<div class="col-md-6 order-md-1 text-center  mb-5">
+						<div  class="custom-container" >
+							<img src="images/Rectangle 4 copy.png" class="w-100">
+						</div>
+					</div>
+
+
+					<div class="col-md-6 order-md-0 mb-5">
+						<div class="custom-container" >
+							<div class="fs-4 fw-bold mb-3" >Symptom check</div>
+							<div>Medibot provides patients with a diagnostic algorithm to explore and analyze their clinical symptoms.</div>
+						</div>
+					</div>
+
+
+				</div>
+				
+				<div class="row mb-2">
+
+
+					<div class="col-md-6 text-center  mb-5">
+						<div  class="custom-container"  >
+							<img src="images/Rectangle 4 copy 2.png" class="w-100">
+						</div>
+					</div>
+
+					<div class="col-md-6  mb-5">
+						<div  class="custom-container" >
+							<div class="fs-4 fw-bold mb-3" >Access to qualified medical resources</div>
+							<div>Medibot can provide accurate and verified information that are pertinent to the patient's symptoms, helping improve their clinical journey.</div>
+						</div>
+					</div>
+
+
+
+				</div>
+				
+				<div class="row">
+
+					<div class="col-md-6 order-md-1 text-center ">
+						<div  class="custom-container" >
+							<img src="images/Rectangle 4 copy 3.png" class="w-100">
+						</div>
+					</div>
+
+
+					<div class="col-md-6 order-md-0">
+						<div  class="custom-container"   >
+							<div class="fs-4 fw-bold mb-3" >Provide feedback</div>
+							<div>Medibot can collect and analyze feedback regarding the patient's experience at the practice. This helps improve services and outcomes.</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+			<div class="position-absolute" style="top: 0;width: 100%; height: 100%;">
+				<div class="track" >
+					<div class="track-step">1</div>
+					<div class="track-step">2</div>
+					<div class="track-step">3</div>
+					<div class="track-step">4</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<div class="accordion-container text-white" style="">
+		<div >
+			<div class="container pt-5">
+				<div class="row">
+					
+					<div class="col-12 text-center fs-2 fw-bold">
+						<div>Improved Practice Efficiency and Productivity</div>
+					</div>
+					
+					<div class="mb-5 text-center " style="color: #fff; opacity: 0.4;">
+						Optimized data processing to improve efficiency of clinical consultations
+					</div>
+
+					<div class="col-1">
+					</div>
+
+					<div class="col-md-6 ">
+
+						<div class="accordion" id="accordionExample">
+
+
+						  <div class="accordion-item">
+						    <h2 class="accordion-header" id="headingOne">
+						      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						        <img class="accordion-icon me-3" src="images/icon1.png">
+						        Appointment booking with pre-filled information
+
+						        <i class="fa-solid fa-plus accordion-dropdown-icon"></i>
+						      </button>
+						    </h2>
+						    <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+						      <div class="accordion-body">
+<small>
+Booking Appointment requests completed by the patient will include description of symptoms, risk factors and likely diagnosis. Improve the efficiency of your consultation by receiving all the required information.
+</small>
+						      </div>
+						    </div>
+						  </div>
+
+
+						  <div class="accordion-item">
+						    <h2 class="accordion-header" id="headingTwo">
+						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						        <img class="accordion-icon me-3" src="images/icon2.png">
+						        Optimized billing suggestions
+						        <i class="fa-solid fa-plus accordion-dropdown-icon"></i>
+						      </button>
+						    </h2>
+						    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+						      <div class="accordion-body">
+
+<small>
+Booking Appointment requests completed by the patient will include description of symptoms, risk factors and likely diagnosis. Improve the efficiency of your consultation by receiving all the required information.
+</small>
+
+						      </div>
+						    </div>
+						  </div>
+
+
+						  <div class="accordion-item">
+						    <h2 class="accordion-header" id="headingThree">
+						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+						        <img class="accordion-icon me-3" src="images/icon3.png">
+						        Highlighted medico-legal conditions
+
+						        <i class="fa-solid fa-plus accordion-dropdown-icon"></i>
+						      </button>
+						    </h2>
+						    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+						      <div class="accordion-body">
+<small>			        
+Booking Appointment requests completed by the patient will include description of symptoms, risk factors and likely diagnosis. Improve the efficiency of your consultation by receiving all the required information.
+</small>
+
+						      </div>
+						    </div>
+						  </div>
+
+
+
+						  <div class="accordion-item">
+						    <h2 class="accordion-header" id="headingThree4">
+						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree4" aria-expanded="false" aria-controls="collapseThree4">
+						        <img class="accordion-icon me-3" src="images/icon4.png">
+						        Optimized clinical services
+
+						        <i class="fa-solid fa-plus accordion-dropdown-icon"></i>
+						      </button>
+						    </h2>
+						    <div id="collapseThree4" class="accordion-collapse collapse" aria-labelledby="headingThree4" data-bs-parent="#accordionExample">
+						      <div class="accordion-body">
+<small>	
+Booking Appointment requests completed by the patient will include description of symptoms, risk factors and likely diagnosis. Improve the efficiency of your consultation by receiving all the required information.
+</small>
+
+						      </div>
+						    </div>
+						  </div>
+
+
+
+						  <div class="accordion-item">
+						    <h2 class="accordion-header" id="headingThree5">
+						      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree5" aria-expanded="false" aria-controls="collapseThree5">
+						        <img class="accordion-icon me-3" src="images/icon5.png">
+						        Indepth analytics of your website
+
+						        <i class="fa-solid fa-plus accordion-dropdown-icon"></i>
+						      </button>
+						    </h2>
+						    <div id="collapseThree5" class="accordion-collapse collapse" aria-labelledby="headingThree5" data-bs-parent="#accordionExample">
+						      <div class="accordion-body">
+<small>					        
+Booking Appointment requests completed by the patient will include description of symptoms, risk factors and likely diagnosis. Improve the efficiency of your consultation by receiving all the required information.
+</small>
+						      </div>
+						    </div>
+						  </div>
+
+
+
+						</div>
+
+					</div>
+
+					<div class="col-md-5 text-center">
+						<img src="images/Layer 3.png" class="w-75">
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container py-5">
+		<div class="row">
+			<div class="col-12 text-center fs-2 fw-bolder">
+				<div>Don't take our word for it,</div>
+				<div>here is what our customers say</div>
+			</div>
+
+			<div class="py-5">
+				
+				<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+					<div class="carousel-inner">
+
+
+
+						<div class="carousel-item active">
+
+							<div class="container">
+								
+								<div class="row">
+
+									<div class="col-2">
+										
+									</div>
+
+									<div class="col-md-3 pb-5  text-center">
+										<div style="position: relative;">
+											<img class="w-75" src="images/Layer 4.png">
+											<div class="text-end" style=" position: absolute; right: 0; ">
+												<div style=" height: 90px; width: 80px; background: lightgray; border-radius: 0 35px 0 0px; margin-top: -60px !important;margin: 0 0 0 auto;"></div>
+												<!-- <img  src="images/Rectangle 7.png" style=" margin-top: -60px;  margin-right: -60px;"> -->
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-5 text-center text-md-start">
+
+										<img src="images/aaa.png" class="mb-4">
+
+										<div class="mb-4">
+											111 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+										</div>
+
+										<div>
+											<strong>Jonathan Doe</strong>
+										</div>
+
+										<div>
+											Apiax CEO
+										</div>
+
+									</div>
+								</div>
+								
+							</div>
+
+						</div>
+
+
+
+						<div class="carousel-item ">
+
+							<div class="container">
+								
+								<div class="row">
+
+									<div class="col-2">
+										
+									</div>
+
+									<div class="col-md-3 pb-5  text-center">
+										<div style="position: relative;">
+											<img class="w-75" src="images/Layer 4.png">
+											<div class="text-end" style=" position: absolute; right: 0; ">
+												<div style=" height: 90px; width: 80px; background: lightgray; border-radius: 0 35px 0 0px; margin-top: -60px !important;margin: 0 0 0 auto;"></div>
+												<!-- <img  src="images/Rectangle 7.png" style=" margin-top: -60px;  margin-right: -60px;"> -->
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-5 text-center text-md-start">
+
+										<img src="images/aaa.png" class="mb-4">
+
+										<div class="mb-4">
+											222 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+										</div>
+
+										<div>
+											<strong>Jonathan Doe</strong>
+										</div>
+
+										<div>
+											Apiax CEO
+										</div>
+
+									</div>
+								</div>
+								
+							</div>
+
+						</div>
+						
+
+
+
+						<div class="carousel-item ">
+
+							<div class="container">
+								
+								<div class="row">
+
+									<div class="col-2">
+										
+									</div>
+
+									<div class="col-md-3 pb-5  text-center">
+										<div style="position: relative;">
+											<img class="w-75" src="images/Layer 4.png">
+											<div class="text-end" style=" position: absolute; right: 0; ">
+												<div style=" height: 90px; width: 80px; background: lightgray; border-radius: 0 35px 0 0px; margin-top: -60px !important;margin: 0 0 0 auto;"></div>
+												<!-- <img  src="images/Rectangle 7.png" style=" margin-top: -60px;  margin-right: -60px;"> -->
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-5 text-center text-md-start">
+
+										<img src="images/aaa.png" class="mb-4">
+
+										<div class="mb-4">
+											333 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+										</div>
+
+										<div>
+											<strong>Jonathan Doe</strong>
+										</div>
+
+										<div>
+											Apiax CEO
+										</div>
+
+									</div>
+								</div>
+								
+							</div>
+
+						</div>
+						
+
+
+
+
+					</div>
+
+					<div class="container pt-4">
+						<div class="row">
+							<div class="col-2 text-md-end">
+							</div>
+							<div class="col-8 text-center text-md-end">
+								<i class="carousel-icons d-inline-block me-2 fa fa-angle-left" data-bs-target="#carouselExampleFade" data-bs-slide="prev"></i>
+								<i class="carousel-icons d-inline-block me-2 fa fa-angle-right" data-bs-target="#carouselExampleFade" data-bs-slide="next"></i>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="pricing-section" >
+
+		<div class="box" style="padding: 56px 0px 260px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 text-center">
+						<div class="fs-1 fw-bold text-white">Our Pricing</div>
+						<div class="" style="color: #fff;opacity: 0.6;">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+					</div>
+		
+				</div>
+			</div>
+		</div>
+
+		<div style="position: absolute;top: 200px;width: 100%;">
+			<div class="container pb-5">
+				<div class="row">
+
+					<div class="col-md-3">
+					</div>
+
+					<div class="col-md-3">
+						<div class="px-3 py-4 shadow bg-white mb-3" style=" border-radius: 15px; "  >
+							<div class="fw-bold fs-4">Installation</div>
+
+							<div>
+								<span class="fw-bold" style="vertical-align: top;line-height: 40px;">$</span>
+								<span class="fw-bold fs-2">100</span>
+							</div>
+
+							<div class="mb-5" style=" color: gray; "  >
+								<small>
+									Lorem ipsum dolor sit amet
+								</small>
+							</div>
+
+							<hr style="border-color: lightgray;">
+
+							<div class="mb-4"  style=" color: gray; "  >
+								<small>
+									Fusce pulvincar est quis orci tempus bibendum.
+								</small>
+							</div>
+
+							<a href="#" class="d-block text-center text-decoration-none text-white py-2 rounded shadow" style="background: #01143c;">
+								Start your free trial
+							</a>
+
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="px-3 py-4 shadow bg-white mb-3" style=" border-radius: 15px; " >
+							<div class="fw-bold fs-4">Monthly Subscription</div>
+
+							<div>
+								<span class="fw-bold" style="vertical-align: top;line-height: 40px;">$</span>
+								<span class="fw-bold fs-2">20</span>/mo
+							</div>
+
+							<div class="mb-5"   style=" color: gray; "   >
+								<small>
+									Lorem ipsum dolor sit amet
+								</small>
+							</div>
+
+							<hr style="border-color: lightgray;">
+
+							<div class="mb-4 "   style=" color: gray; " >
+								<small>
+									Fusce pulvincar est quis orci tempus bibendum.
+								</small>
+							</div>
+
+							<a href="#" class="d-block text-center text-decoration-none text-white py-2 rounded" style="background: #2a73fe;">
+								Start your free trial
+							</a>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div class="text-white footer" style="background: #01143c;">
+		<div class="container py-5">
+			<div class="row">
+
+				<div class="col-1">
+					
+				</div>
+
+				<div class="col-md-4 mb-5">
+					<img src="images/Layer 6.png" class="w-25 mb-2">
+					<div class="mb-4" style=" opacity: 0.4; ">
+						<small>
+							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+						</small>
+					</div>
+					<div class="">
+						<a href="#" class="social-icons d-inline-block me-2 fa-brands fa-twitter" ></a>
+						<a href="#" class="social-icons d-inline-block me-2 fa-brands fa-linkedin-in" ></a>
+						<a href="#" class="social-icons fa-brands fa-facebook-f" ></a>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-3">
+					<div>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">Solution</a>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">GP practice</a>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">Physio</a>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">Occupational Therapy</a>
+					</div>
+				</div>
+
+				<div class="col-6 col-md-3">
+					<div>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">FAQ</a>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">Legal</a>
+						<a href="#" class="mb-2 d-block text-white text-decoration-none">Privacy Policy</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="container py-2">
+		<div class="row">
+			<div class="col-12 text-center">
+				<small>
+					Copyright © 2022, <a href="#" class="text-decoration-none text-black">Medibot.</a> All Rights Reserved.
+				</small>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+</body>
+</html>

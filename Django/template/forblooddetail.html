@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}" >
+    <link rel="icon" type="image/png" sizes="32x32"  href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'login.css' %}" rel="stylesheet" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNMLKEX919"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HNMLKEX919');
+    </script>
+
+
+   <!-- Zoho -->
+
+   <script src="https://cdn-in.pagesense.io/js/jollysoftpvtltd/a47e25ab185c488aad59d3287830c80f.js" ></script>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '845027796483583');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=845027796483583&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+    <main class="main" id="top">
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+              <div class="row">
+                <div class="row">
+                  <a class="navbar-brand" href="{% url 'HOME' %}"><h3>ApnaMD</h3></a>
+                </div>
+                <div class="row">
+                  <p> Clinically Tested AI Diagnostic </p>
+
+                </div>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+              <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'HOME' %}">Home</a></li>
+                  <li class="nav-item px-2"><a class="nav-link" href="{% url 'DISEASE_SELECTION1' %}">Symptom Check</a></li>
+
+                </ul>
+                <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'LOGOUT' %}">Sign Out</a>
+              </div>
+            </div>
+          </nav>
+
+          <section class="py-xxl-8 pb-0" id="home">
+            <div class="bg-holder bg-size" style="background-image:url(/static/assets/img/gallery/hero-bg.png)  ;background-position:top center;background-size:cover;">
+            </div>
+            <!--/.bg-holder-->
+
+            <div class="container">
+              <div class="row min-vh-xl-100 min-vh-xxl-25">
+                <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"><img class="pt-7 pt-md-0 w-100" src="{% static 'assets/img/gallery/image (1).png' %}" alt="hero-header" /></div>
+                <div class="col-md-85 col-xl-6 col-xxl-5 text-md-start text-center py-6">
+                    <h1 class="fw-light font-base fs-6 fs-xxl-4"><strong>We recommend that you analyze your blood results with symptoms assessment for better accuracy. Blood test analysis is integrated with cough, abdominal pain and fever</strong> <br /></h1>
+                    <div class="row py-5 align-items-center justify-content-center justify-content-lg-evenly">
+                      <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+                        <div class="d-flex flex-column align-items-center">
+                          <div class="icon-box text-center">
+                            <a class="text-decoration-none" href="{% url 'cough_check' %}"><img class="mb-3 deparment-icon" src="{% static '/assets/img/icons/2.png' %}" alt="..." width="100px" height="100px" /><img class="mb-3 deparment-icon-hover" src="{% static '/assets/img/icons/2.png' %}" alt="..." width="100px" height="100px" />
+                              <!-- <p class="fs-1 fs-xxl-2 text-center">Cough</p> -->
+                            </a></div>
+                        </div>
+                      </div>
+                      <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+                        <div class="d-flex flex-column align-items-center">
+                          <div class="icon-box text-center"><a class="text-decoration-none" href="{% url 'abdominalPain' %}"><img class="mb-3 deparment-icon" src="{% static '/assets/img/icons/10.png' %}" alt="..." width="100px" height="100px" /><img class="mb-3 deparment-icon-hover" src="{% static '/assets/img/icons/10.png' %}" alt="..." width="100px" height="100px" />
+                              <!-- <p class="fs-1 fs-xxl-2 text-center">Abdominal Pain</p>  -->
+                            </a></div>
+                        </div>
+                      </div>
+                      <div class="col-auto col-md-4 col-lg-auto text-xl-start">
+                        <div class="d-flex flex-column align-items-center">
+                          <div class="icon-box text-center"><a class="text-decoration-none" href="{% url 'questionsfever' %}"><img class="mb-3 deparment-icon" src="{% static '/assets/img/icons/4.png' %}" alt="..." width="100px" height="100px"/><img class="mb-3 deparment-icon-hover" src="{% static '/assets/img/icons/4.png' %}" alt="..." width="100px" height="100px" />
+                              <!-- <p class="fs-1 fs-xxl-2 text-center">Fever</p> -->
+                            </a></div>
+                        </div>
+                      </div>
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+    </main>
+</body>
+</html>

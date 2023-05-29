@@ -1,0 +1,103 @@
+<Html>
+<Head>  
+<style>
+.bmiblock {
+  position: relative;
+  max-width: 80%;
+  margin: 0 1px 0 20px;
+  height: auto;
+  background: #e3e7ee;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 2px 3px 9px 0px #9a82842e;
+  padding:10px
+}
+
+.bmiblock .row {
+  display: flex;
+  height: 35px;
+  border-bottom: dotted 1px;
+}
+
+.bmiblock .row_footer {
+  display: flex;
+  height: 35px;
+}
+
+.bmiblock .question {
+  float: left;
+  width: 70%;
+  padding-top: 9px;
+  font-weight:bold
+}
+
+.bmiblock .option {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+.bmiblock .option .input_format {
+  overflow: hidden;
+  margin:5px;
+  padding:3px;
+  border-color: #38c;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.bmiblock .option .radio_format {
+  width: 22px;
+  height: 22px;
+  margin: calc(0.75rem - 11px) 0.25rem 0 0;
+  vertical-align: top;
+  border-radius: 50%;
+  background: #fff no-repeat center center;
+  color: #000;
+  border: 2px solid #ddd;
+}
+
+.bmiblock .option fieldset {
+  border: none;
+  height: 35px;
+  margin: 0;
+  overflow: hidden;
+}
+</style>
+</Head>  
+<Body>
+<div class="bmiblock">
+  <div class="row">
+    <div class="question">Please select your gender</div>
+    <div class="option">
+      <fieldset>
+      <label>Male</label>
+      <input class="radio_format" type="radio" name="gender" id="male" value="male" checked>
+      <label>Female</label>
+      <input class="radio_format" type="radio" name="gender" id="female" value="female">
+      </fieldset>
+    </div>
+  </div>
+  <div class="row">
+    <div class="question">What is your weight in kilograms?</div>
+    <div class="option">
+      <input class="input_format" data-payload="" type="number" min="1" max="250"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="question">What is your height in centimeters?</div>
+    <div class="option">
+      <input class="input_format" data-payload="" type="number" min="10" max="300"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="question">BMI</div>
+    <div class="option">
+      <input class="input_format" data-payload="" type="number" min="10" max="300" readonly/>
+    </div>
+  </div>
+  <div class="row_footer">
+    <a>oker</a>
+  </div>
+</div>
+</Body>  
+</Html>  

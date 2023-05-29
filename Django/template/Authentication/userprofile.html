@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/apple-touch-icon.png' %}" >
+    <link rel="icon" type="image/png" sizes="32x32"  href="{% static 'assets/img/favicons/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/favicon-16x16.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/favicon.ico' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+    <link href="{% static 'login.css' %}" rel="stylesheet" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNMLKEX919"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HNMLKEX919');
+    </script>
+
+
+   <!-- Zoho -->
+
+   <script src="https://cdn-in.pagesense.io/js/jollysoftpvtltd/a47e25ab185c488aad59d3287830c80f.js" ></script>
+</head>
+<body>
+    <main class="main" id="top">
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container">
+              <div class="row">
+                <div class="row">
+                  <a class="navbar-brand" href="{% url 'HOME' %}"><h3>ApnaMD</h3></a>
+                </div>
+                <div class="row">
+                  <p> Clinically Tested AI Diagnostic </p>
+    
+                </div>
+              </div>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+              <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base">
+                  <li class="nav-item px-2"><a class="nav-link" aria-current="page" href="{% url 'HOME' %}">Home</a></li>
+                  <!-- <li class="nav-item px-2"><a class="nav-link" href="#SymptomCheck">Symptom Check</a></li> -->
+              
+                </ul>
+                {% if user.is_authenticated %}
+            
+            
+                <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'LOGOUT' %}">LogOut</a>
+                        
+            {% endif %}
+                
+              </div>
+            </div>
+          </nav>
+        
+          <section class="py-xxl-8 pb-0" id="home">
+            <div class="bg-holder bg-size" style="background-image:url(/static/assets/img/gallery/hero-bg.png)  ;background-position:top center;background-size:cover;">
+            </div>
+            <!--/.bg-holder-->
+    
+            <div class="container">
+              <div class="row min-vh-xl-100 min-vh-xxl-25">
+                  
+                <div class="col-md-5 col-xl-6 col-xxl-7 order-0 order-md-1 text-end"></div>
+                <div class="col-md-85 col-xl-6 col-xxl-2 text-md-start text-center py-6">
+                        
+                        <!-- <div class="col-md-4"></div> -->
+                    </div>
+                    {% if user.is_authenticated %}
+                    
+                            <table class=" table   " style="background-color: white; text-align: center;" >
+                                <thead class="thead-dark">
+                                  <tr>
+                                    
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Date Of Birth</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Sex</th>
+                                    <th scope="col">Height</th>
+                                    <th scope="col">Weight</th>
+                                    <th scope="col">BMI</th>
+                                    <th scope="col">Activity</th>
+                                    <th scope="col">Diabetes</th>
+                                    <th scope="col">Hypertension</th>
+                                    <th scope="col">CurrentSmoker</th>
+                                    <th scope="col">PastSmoker</th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                    
+                                    <tr>
+                                      <td>{{request.user}}</td>
+                                      <td>{{request.user.email}}</td>
+                                      <td>{{request.user.user_detail.dob}}</td>
+                                      <td>{{request.user.user_detail.Age}}</td>
+                                      <td>{{request.user.user_detail.sex}}</td>
+                                      <td>{{request.user.user_detail.heigh}}</td>
+                                      <td>{{request.user.user_detail.weigth}}</td>
+                                      <td>{{request.user.user_detail.BMI}}</td>
+                                      <td >{{request.user.user_detail.activity}}</td>
+                                      <td>{{request.user.user_detail.Diabetes}}</td>
+                                      <td>{{request.user.user_detail.Hypertension}}</td>
+                                      <td>{{request.user.user_detail.CurrentSmoker}}</td>
+                                      <td>{{request.user.user_detail.PastSmoker}}</td>
+                                    </tr>
+                
+                                    
+                                    <tr>
+                                </tbody>
+                            </table>
+                        
+                        {% endif %}
+                    
+                        </div>
+                      </div>
+                      
+                </div>
+                
+              </div>
+            </div>
+          </section>
+
+        <!-- <section> -->
+              <h3 class="fw-light px-5 font-base fs-6 fs-xxl-5"> <strong> Investigation : </strong></h3>  
+              <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-4 center">
+                    <div class="row">
+                          <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'allchestxray' %}">X-Ray</a>
+                      </div>
+
+                    <div class="row py-3">
+                    <a class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{% url 'allbloodreport' %}">Blood Test</a>
+                  </div>
+                </div>
+          </div>
+        <!-- </section> -->
+          
+          
+          
+    </main>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://apnamd.ai/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://apnamd.ai/css/style.css">
+    
+        <link rel="stylesheet" href="https://apnamd.ai/bot/style.css"> 
+    <style>
+        .requestotp {
+            margin-top: 7px;
+            display: inline-block;
+            font-size: 14px;
+            border: none;
+        }
+        .link7895{
+                border: solid 1px #8d6fe7;
+                border-radius: 10px;
+                color: #8d6fe7;
+            }
+            
+            a:visited {
+                color: initial;
+            }
+    </style>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        th, td {
+          text-align: left;
+          padding: 8px;
+          border: 1px solid black;
+        }
+        th {
+          background-color: #ddd;
+        }
+      </style>
+      
+</head>
+<body>
+    
+    <section class="banner">
+         
+        <div class="container">
+           
+            <nav class="navbar navbar-expand-lg navbar-light custom_navbar">
+                <a class="navbar-brand" href="#"><img src="" alt="" style="width: 100px;"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                   <ul class="navbar-nav ml-auto custom_ul">
+                      
+                      
+                      
+                     
+                      
+                      {% if user.is_authenticated %}
+                     
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Diagnosis</a> 
+                         </li>
+                         
+                         <li class="nav-item">
+                             <a class="nav-link" href="#">Profile</a>
+                         </li>
+                         
+                         <li class="nav-item">
+                             <a class="nav-link" href="{% url 'LOGOUT' %}">Logout</a>
+                         </li> 
+                          
+                        {% endif %}
+                         
+                         
+                         
+                     
+                      
+                      
+                   </ul>
+                </div>
+             </nav>
+           
+             <div class="row align-items-center">
+                {% if profiledata %}
+    <div class="col text-center text-md-left mb-3 mb-md-0">
+        <div>
+            <table  style="width:100%;" >
+                <tbody>
+                    
+                    <tr>
+                        <td style="width:20%; text-align:left;">Name:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="name-display">{{ profiledata.name }}</span>
+                            <input type="text" id="name-input" name="name" value="{{ profiledata.name }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="name-edit-btn" onclick="toggleEdit('name')">Edit</button>
+                            <button id="name-save-btn" onclick="saveEdit('name')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+                  
+                    <tr>
+                        <td style="width:20%; text-align:left;">Email:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="email-display">{{ profiledata.gmail }}</span>
+                            <input type="text" id="email-input" name="gmail" value="{{ profiledata.gmail }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="email-edit-btn" onclick="toggleEdit('email')">Edit</button>
+                            <button id="email-save-btn" onclick="saveEdit('email')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">WhatsApp:</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="whatsapp-display">{{ profiledata.whatsapp }}</span>
+                            <input type="text" id="whatsapp-input" name="whatsapp" value="{{ profiledata.whatsapp }}" style="display:none;" readonly>
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="whatsapp-edit-btn" onclick="toggleEdit('whatsapp')" style="display:none;">Edit</button>
+                            <button id="whatsapp-save-btn" onclick="saveEdit('whatsapp')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                    
+
+                    <tr>
+                        <td style="width:20%; text-align:left;">Smoking</td>
+                        <td style="width:20%; text-align:left;">
+                            <span id="number-display">{{ profiledata.number }}</span>
+                            <input type="text" id="number-input" name="number" value="{{ profiledata.number }}" style="display:none;">
+                        </td>
+                        <td style="width:20%; text-align:left;">
+                            <button id="number-edit-btn" onclick="toggleEdit('number')">Edit</button>
+                            <button id="number-save-btn" onclick="saveEdit('number')" style="display:none;">Save</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Define a function to toggle between display mode and edit mode
+        function toggleEdit(fieldName) {
+            const displayEl = document.querySelector(`#${fieldName}-display`);
+            const inputEl = document.querySelector(`#${fieldName}-input`);
+            const editBtn = document.querySelector(`#${fieldName}-edit-btn`);
+            const saveBtn = document.querySelector(`#${fieldName}-save-btn`);
+    
+            if (displayEl.style.display === 'none') {
+                // Switch to display mode
+                displayEl.style.display = 'inline';
+                inputEl.style.display = 'none';
+                editBtn.style.display = 'inline';
+                saveBtn.style.display = 'none';
+            } else {
+                // Switch to edit mode
+                displayEl.style.display = 'none';
+                inputEl.style.display = 'inline';
+                editBtn.style.display = 'none';
+                saveBtn.style.display = 'inline';
+            }
+        }
+    
+        // Define a function to save the edited data
+        function saveEdit(fieldName) {
+            const inputEl = document.querySelector(`#${fieldName}-input`);
+            const displayEl = document.querySelector(`#${fieldName}-display`);
+            const data = new FormData();
+            data.append(fieldName, inputEl.value);
+    
+            fetch('/update-profile', {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Update the display element with the new value
+                    displayEl.textContent = inputEl.value;
+    
+                    // Switch back to display mode
+                    toggleEdit(fieldName);
+                } else {
+                    alert('Failed to update profile. Please try again later.');
+                }
+            })
+            .catch(error => {
+                alert('Failed to update profile. Please try again later.');
+                console.error(error);
+            });
+        }
+    
+        // Add event listeners to the input elements
+        const emailInput = document.querySelector('#email-input');
+        const numberInput = document.querySelector('#number-input');
+    
+        emailInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                saveEdit('email');
+            }
+        });
+    
+        numberInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                saveEdit('number');
+            }
+        });
+    </script>
+    {% endif %}    
+       
+               
+
+       </div>
+           <div class="row align-items-center">
+                    {% if totalmodules %}
+                            <div class="col text-center text-md-left mb-3 mb-md-0">
+                                <div>
+                                    <h2>Total Modules You have completed : {{totalmodules|length}}</h2>
+                                    
+                                    
+                                    <table class="bordered" style="width:100%;" >
+                                        <thead>
+                                          <tr>
+                                            <th style="width:20%; text-align:left;">Unique Id</th>
+                                            <th style="width:20%; text-align:left;">Module Name</th>
+                                            <th style="width:20%; text-align:left;">Diagnosis</th>
+                                            <th style="width:20%; text-align:left;">Date of testing</th>
+                                            <th style="width:20%; text-align:left;">Pdf File</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in totalmodules %}
+                                          <tr>
+                                            <td style="width:20%; text-align:left;">{{ i.uniqueid }}</td>
+                                            <td style="width:20%; text-align:left;">{{ i.Modulename }}</td>
+                                            <td style="width:20%; text-align:left;">{{ i.Diagnosis }}</td>
+                                            <td style="width:20%; text-align:left;">{{ i.date }}</td>
+                                            <td style="width:20%; text-align:left;">
+                                              <a href="{{ i.link }}">Download File<i class="fa fa-download" aria-hidden="true"></i></a>
+                                              
+                                            </td>
+                                          </tr>
+                                    {% endfor %}
+
+                                        </tbody>
+                                      </table>
+                                      
+                                      
+                                    <!-- <p style="display: inline-block;">Module completion date: {{ i.date }}</p>
+                                    <a href="{{ i.link }}" style="display: inline-block;margin-left: 10px;">Download File</a> -->
+                                    
+                                </div>
+                            </div>
+                    {% endif %}
+           
+                   
+
+           </div>
+           
+        </div>
+     
+     </section>
+
+     <footer class="custom_footer">
+        <div class="container">
+           <div class="footer_data">
+              <img src="#" alt="">
+              <p> 
+                  <a href="#">Privacy Policy</a> |
+                  <a href="#">Terms & Conditions</a> |
+                  © <?= date('Y'); ?> APNAMD, All rights reserved.
+              </p>
+           </div>
+        </div>
+     </footer>
+     
+     
+     <script>
+        $(document).ready(function(){
+             $('.collapse.show').each(function(){
+              $(this).parent().find(".fa").removeClass("fa-plus").addClass("fa-minus");
+            });
+              
+           $('.collapse').on('shown.bs.collapse', function(){
+              $(this).parent().find(".fa").removeClass("fa-plus").addClass("fa-minus");
+           }).on('hidden.bs.collapse', function(){
+              $(this).parent().find(".fa").removeClass("fa-minus").addClass("fa-plus");
+           });       
+        });
+        </script> 
+     <script src="https://apnamd.ai/js/jquery.slim.min.js"></script>
+     
+
+     
+     <script src="https://apnamd.ai/js/popper.min.js"></script>
+     <script src="https://apnamd.ai/js/bootstrap.bundle.min.js"></script>
+     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+
+
+    
+</body>
+</html>
+
+
+
+      
+    
+
+
+
+

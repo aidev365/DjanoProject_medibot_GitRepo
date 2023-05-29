@@ -1,0 +1,38 @@
+.background{
+    background-image: url('/static/images/homeback.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    /* background-color: blue; */
+}
+
+
+body{
+    /* background-image: url('/static/images/homeback.jpg'); */
+        
+    
+    background: url('/static/images/homeback.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+
+}
+
+h2{
+    text-align: center;
+    color: #fff;
+}
+li{
+    text-align: left;
+    size: 20px;
+}
+.custom {
+    width: 78px !important;
+}
+
+
+

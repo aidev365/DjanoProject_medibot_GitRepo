@@ -1,0 +1,24 @@
+{% load socialaccount %}
+<html>
+<body>
+<h1>My Google OAuth Project </h1>
+{% if user.is_authenticated %}
+  <p>Welcome, You are logged in as {{ user.username }}</p>
+  <p>Welcome. Complete a few simple questions to get an insight into whether you are suffering from anxiety.</p>
+{% else %}
+<button class="btn btn-primary mb-2">
+  <a href="{% provider_login_url 'google' %}">Login With Google</a>
+</button>
+
+
+
+{% endif %}
+</body>
+</html>
+
+
+
+
+    </main>
+</body>
+</html>
